@@ -5,7 +5,7 @@ each item object is of structure {value:"bla bla", text:"pretty bla bla text"}
 */
 
 const DropDownList = (props) => {
-    const setGlobalValue = props.selectItem||((...args)=>{});//for now this is used to as placeholder for useContext setter
+    const setGlobalValue = props.selectItem||((...args)=>{});//this is used to as placeholder for useContext setter
 
     const [selectedItem, setSelectedItem] = React.useState(props.items[0]);
     const [items, setItems] = React.useState([...props.items])
@@ -20,6 +20,7 @@ const DropDownList = (props) => {
     React.useEffect(()=>{
         setItems(props.items)
     },[props])
+
     return <div>
       <select onChange={(e) => changePick(e)} name="hours" >
         {items.map(item => <option value={item.value}>{item.text}</option>)}
