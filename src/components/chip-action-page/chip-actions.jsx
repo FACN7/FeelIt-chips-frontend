@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import "./chip-actions.css";
 export default function ChipActionPage() {
-  let history = useHistory();
+  const history = useHistory();
   return (
     <React.Fragment>
       <div className="Container">
