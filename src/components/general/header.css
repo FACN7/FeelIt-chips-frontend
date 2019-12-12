@@ -1,0 +1,13 @@
+#navbar {
+    background: black;
+    padding: 0.5em 1em;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+  
+  #navbar .nav-items {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+  }
