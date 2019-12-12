@@ -1,0 +1,12 @@
+.Container {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 300px;
+}
+.button-container {
+  display: grid;
+  width: 200px;
+  grid-row-gap: 20px;
+  margin: auto;
+}
