@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import "./chip-actions.css";
-export default function ChipActionPage() {
+import "./Sensors-actions.css";
+export default function SensorsActionPage() {
   const history = useHistory();
   return (
     <React.Fragment>
