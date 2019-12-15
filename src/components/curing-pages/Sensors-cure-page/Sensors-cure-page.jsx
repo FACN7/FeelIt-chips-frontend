@@ -26,7 +26,7 @@ const postCuring = (setTable,table, type, _id) => {
     method: "POST",
     body: JSON.stringify(postData),
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type":"application/json"
     }
   }).then(setTable(init));
 };
