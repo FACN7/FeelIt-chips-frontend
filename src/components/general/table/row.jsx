@@ -4,10 +4,8 @@ import "./row.css";
 import tableContext from "./tableContext";
 
 export default function Row({ first_cell, row, sensorsNum, sensorsProbsNum }) {
-  
   const columns = [...Array(sensorsNum + 1).keys()];
   const { table, setTable } = React.useContext(tableContext);
-
 
   return (
     <tr className="row" key={row}>
@@ -19,11 +17,11 @@ export default function Row({ first_cell, row, sensorsNum, sensorsProbsNum }) {
             first_cell
           ) : (
             <input
-              defaultValue={table[idx - 1][first_cell]}
+              value={table[idx - 1][first_cell] || ""}
               onChange={e => {
                 if (e.target.value === "") delete table[idx - 1][first_cell];
                 else table[idx - 1][first_cell] = e.target.value;
-                setTable({table});
+                setTable({ table });
               }}
             />
           )}

@@ -6,10 +6,14 @@ import tableContext from "../../general/table/tableContext";
 import { useHistory } from "react-router-dom";
 
 const init = [{}, {}, {}, {}, {}, {}, {}, {}];
-// const emptyTable = [{}, {}, {}, {}, {}, {}, {}, {}];
+const emptyTable = [{}, {}, {}, {}, {}, {}, {}, {}];
 
 let reducer = (table, action) => {
-  // return { ...table, ...newTable };
+  if (action.reset) {
+    return JSON.parse(JSON.stringify(emptyTable));
+  }
+
+  return JSON.parse(JSON.stringify(action.table));
 };
 
 const items = [
@@ -19,7 +23,6 @@ const items = [
 ];
 
 const postCuring = table => {
-  console.log("wtf", table);
 };
 
 export default function CurePage() {
