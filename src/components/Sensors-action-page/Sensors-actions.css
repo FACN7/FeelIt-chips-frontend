@@ -4,9 +4,22 @@
   margin-right: auto;
   margin-top: 300px;
 }
-.button-container {
+.buttons-container {
   display: grid;
   width: 200px;
-  grid-row-gap: 20px;
+  grid-row-gap: 50px;
   margin: auto;
+}
+
+.buttons-container img {
+  width: 30px;
+  height: 30px;
+}
+
+.buttons-container button {
+  display: flex;
+  width: 100px;
+  height: 70px;
+  justify-content: space-between;
+  align-items: center;
 }
