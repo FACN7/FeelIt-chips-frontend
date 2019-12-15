@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import "./chip-actions.css";
-export default function ChipActionPage() {
+import "./Sinsors-actions.css";
+export default function SinsorsActionPage() {
   const history = useHistory();
   return (
     <React.Fragment>

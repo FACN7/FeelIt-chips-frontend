@@ -1,12 +1,12 @@
 import React from "react";
 import "./App.css";
-import ChipAction from "./components/chip-action-page/chip-actions";
+import SinsorsAction from "./components/Sinsors-action-page/Sinsors-actions";
 import Header from "./components/general/header"
 function App() {
   return (
     <React.Fragment>
       <Header/>
-      <ChipAction></ChipAction>
+      <SinsorsAction></SinsorsAction>
     </React.Fragment>
   );
 }
