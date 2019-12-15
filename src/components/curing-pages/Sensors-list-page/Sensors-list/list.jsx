@@ -1,27 +1,34 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import "./list.css";
+
+const getResistenceTable=(_id)=>{
+
+}
 export default function List({ Curing = true }) {
   const [list, setList] = React.useState([]);
   const history = useHistory();
   React.useEffect(() => {
     // /get-sensors
-    fetch("https://api.myjson.com/bins/11727g")
+    fetch("https://api.myjson.com/bins/gkey0")
       .then(res => res.json())
-      .then(res => setList(res.chips));
+      .then(res => setList(res.sensors));
   }, []);
   return (
     <div className="list">
-      {list.map(chip => (
-        <div key={chip.serialNumber} className="list-item">
+      {list.map(sensor => (
+        <div key={sensor.serialNumber} className="list-item">
+          <button onClick={getResistenceTable(sensor._id)}>
             <div>
-              <span>{chip.serialNumber}</span>
+              <span>#{sensor.serialNumber}</span>
+              <span>Sensor created {sensor.dateCreated}</span>
             </div>
+          </button>
           <button
             onClick={e => {
               Curing
-                ? history.push(`/cure-chip/${chip.serialNumber}`)
-                : history.push(`/coat-chip/${chip.serialNumber}`);
+                ? history.push(`/cure-chip/${sensor.serialNumber}`)
+                : history.push(`/coat-chip/${sensor.serialNumber}`);
             }}
           >
             {Curing ? "Go To Curing" : "Go To Coating"}
