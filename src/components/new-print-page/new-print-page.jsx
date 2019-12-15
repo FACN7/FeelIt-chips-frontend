@@ -1,15 +1,15 @@
-import React, { useContext } from 'react';
-import { InfoProvider } from "./printContext"
-import PrintForm from "./new-print-form/print-form"
+import React, { useContext } from "react";
+import { InfoContext, InfoProvider } from "./printContext";
+import PrintForm from "./new-print-form/print-form";
 
-const NewPrintPage = ()=>{
-
-
-    return (
-        <InfoProvider>
-        <PrintForm />
-      </InfoProvider>
-    );
+const NewPrintPage = () => {
+  const { info, setInfo } = useContext(InfoContext);
+  return (
+    <InfoProvider>
+      <PrintForm />
+      <button onClick={() => setInfo(null)}>Reset Cache</button>
+    </InfoProvider>
+  );
 };
 
 export default NewPrintPage;

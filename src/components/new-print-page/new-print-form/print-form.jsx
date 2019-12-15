@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import DropDownList from "../../general/dropDownList";
 import { InfoContext } from "../printContext"
 const PrintForm = () => {
+    const { info, setInfo } = useContext(InfoContext)
     const convertToDropDownListItems = (arr) => {
         return arr.map(({ value, label }) => { return ({ value, text: label }) });
     };
@@ -10,7 +11,6 @@ const PrintForm = () => {
         setInfo({ [key]: newValue });
     };
 
-    const { info, setInfo } = useContext(InfoContext)
     const [electrodeTypes, setElectrodeTypes] = React.useState([]);
     const [printers, setPrinters] = React.useState([]);
     const [inkTypes, setInkTypes] = React.useState([]);
@@ -35,6 +35,7 @@ const PrintForm = () => {
                 <DropDownList selectItem={handleChange("inkType")} items={inkTypes} />
                 <DropDownList selectItem={handleChange("concentration")} items={concentrations} />
             </div>
+            
         </div>
     );
 };
