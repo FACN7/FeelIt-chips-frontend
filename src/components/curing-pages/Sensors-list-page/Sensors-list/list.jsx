@@ -2,11 +2,9 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import "./list.css";
 
-const getResistenceTable=(_id)=>{
-
-}
-export default function List({ Curing = true }) {
+function List({ Curing = true }) {
   const [list, setList] = React.useState([]);
+
   const history = useHistory();
   React.useEffect(() => {
     // /get-sensors
@@ -18,12 +16,9 @@ export default function List({ Curing = true }) {
     <div className="list">
       {list.map(sensor => (
         <div key={sensor.serialNumber} className="list-item">
-          <button onClick={getResistenceTable(sensor._id)}>
-            <div>
-              <span>#{sensor.serialNumber}</span>
-              <span>Sensor created {sensor.dateCreated}</span>
-            </div>
-          </button>
+          <span>#{sensor.serialNumber}</span>
+          <span>Sensor created {sensor.dateCreated}</span>
+
           <button
             onClick={e => {
               Curing
@@ -38,3 +33,4 @@ export default function List({ Curing = true }) {
     </div>
   );
 }
+export default List;

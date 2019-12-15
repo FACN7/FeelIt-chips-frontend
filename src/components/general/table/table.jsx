@@ -8,7 +8,8 @@ const printFirstColumn = ["layer", "resistance"];
 export default function Table({
   Type,
   sensorsNum = 8,
-  sensorsProbsNum = 4
+  sensorsProbsNum = 4,
+  Resistence =false
 }) {
   const rows = [...Array(sensorsProbsNum + 1).keys()];
   const FirstColumn =
@@ -28,6 +29,7 @@ export default function Table({
                 sensorsNum={sensorsNum}
                 sensorsProbsNum={sensorsProbsNum}
                 first_cell={FirstColumn[idx - 1]}
+                Resistence={Resistence}
               ></Row>
             ))}
           </tbody>

@@ -5,14 +5,12 @@ import DropList from "../../general/dropDownList";
 import tableContext from "../../general/table/tableContext";
 import { useHistory } from "react-router-dom";
 
-const init = [{}, {}, {}, {}, {}, {}, {}, {}];
-const emptyTable = [{}, {}, {}, {}, {}, {}, {}, {}];
+const init = { s0: {}, s1: {}, s2: {}, s3: {}, s4: {}, s5: {}, s6: {}, s7: {} };
 
 let reducer = (table, action) => {
   if (action.reset) {
-    return JSON.parse(JSON.stringify(emptyTable));
+    return JSON.parse(JSON.stringify(init));
   }
-
   return JSON.parse(JSON.stringify(action.table));
 };
 
@@ -22,12 +20,20 @@ const items = [
   { text: "Photonic", value: 2 }
 ];
 
-const postCuring = table => {
+const postCuring = (setTable,table, type, _id) => {
+  const postData = { _id, curing: { type, ...table } };
+  fetch("/curing-table", {
+    method: "POST",
+    body: JSON.stringify(postData),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }).then(setTable(init));
 };
 
 export default function CurePage() {
-  const [showTable, setShowTable] = React.useState("");
-  const [table, setTable] = React.useReducer(reducer, [...init]);
+  const [type, setType] = React.useState("");
+  const [table, setTable] = React.useReducer(reducer, { ...init });
   const history = useHistory();
 
   return (
@@ -38,14 +44,16 @@ export default function CurePage() {
             selectItem={e => {
               setTable({ reset: true });
               e = e === "1" ? 1 : e === "2" ? 2 : 0;
-              setShowTable(items[e].text);
+              setType(items[e].text);
             }}
             items={items}
           ></DropList>
-          {showTable === "" ? null : (
+          {type === "" ? null : (
             <div className="CuringInput">
-              <Table Type={showTable}></Table>
-              <button onClick={() => postCuring(table)}>Add Curing</button>
+              <Table Type={type}></Table>
+              <button onClick={() => postCuring(setTable,table, type)}>
+                Add Curing
+              </button>
             </div>
           )}
 

@@ -3,7 +3,13 @@ import React from "react";
 import "./row.css";
 import tableContext from "./tableContext";
 
-export default function Row({ first_cell, row, sensorsNum, sensorsProbsNum }) {
+export default function Row({
+  first_cell,
+  row,
+  sensorsNum,
+  sensorsProbsNum,
+  Resistence
+}) {
   const columns = [...Array(sensorsNum + 1).keys()];
   const { table, setTable } = React.useContext(tableContext);
 
@@ -17,10 +23,11 @@ export default function Row({ first_cell, row, sensorsNum, sensorsProbsNum }) {
             first_cell
           ) : (
             <input
-              value={table[idx - 1][first_cell] || ""}
+              value={table[`s${idx - 1}`][first_cell] || ""}
               onChange={e => {
-                if (e.target.value === "") delete table[idx - 1][first_cell];
-                else table[idx - 1][first_cell] = e.target.value;
+                if (e.target.value === "")
+                  delete table[`s${idx - 1}`][first_cell];
+                else table[`s${idx - 1}`][first_cell] = e.target.value;
                 setTable({ table });
               }}
             />
