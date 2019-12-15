@@ -16,7 +16,7 @@ export default function SensorsActionPage() {
           </button>
           <button
             onClick={() => {
-              history.push("/Curing");
+              history.push("/Sensors");
             }}
           >
             Curing

@@ -9,7 +9,7 @@ export default function ListPage() {
   return (
     <React.Fragment>
       <div className="Container">
-        <span>Hello please select chip to cure</span>
+        <span>Hello please select sensor to cure</span>
         <List></List>
         <button
           onClick={e => {

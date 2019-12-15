@@ -5,6 +5,7 @@ export default function List({ Curing = true }) {
   const [list, setList] = React.useState([]);
   const history = useHistory();
   React.useEffect(() => {
+    // /get-sensors
     fetch("https://api.myjson.com/bins/11727g")
       .then(res => res.json())
       .then(res => setList(res.chips));
@@ -13,7 +14,9 @@ export default function List({ Curing = true }) {
     <div className="list">
       {list.map(chip => (
         <div key={chip.serialNumber} className="list-item">
-          <span>{chip.serialNumber}</span>
+            <div>
+              <span>{chip.serialNumber}</span>
+            </div>
           <button
             onClick={e => {
               Curing
