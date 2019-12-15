@@ -1,5 +1,5 @@
 import React from "react";
-import "./chip-cure-page.css";
+import "./Sensors-cure-page.css";
 import Table from "../../general/table/table";
 import DropList from "../../general/dropDownList";
 import tableContext from "../../general/table/tableContext";

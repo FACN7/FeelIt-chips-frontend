@@ -1,7 +1,7 @@
 import React from "react";
-import List from "./chips-list/list";
+import List from "./Sensors-list/list";
 import { useHistory } from "react-router-dom";
-import "./chip-list-page.css";
+import "./Sensors-list-page.css";
 
 export default function ListPage() {
   const history = useHistory();
