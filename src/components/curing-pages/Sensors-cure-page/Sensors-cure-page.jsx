@@ -1,7 +1,7 @@
 import React from "react";
 import "./Sensors-cure-page.css";
 import Table from "../../general/table/table";
-import DropList from "../../general/dropDownList";
+import DropList from "../../general/Drop-down-list/Drop-down-list";
 import tableContext from "../../general/table/tableContext";
 import { useHistory } from "react-router-dom";
 
@@ -27,9 +27,9 @@ const postCuring = (setTable,table, type, _id) => {
     method: "POST",
     body: JSON.stringify(postData),
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type":"application/json"
     }
-  }).then(setTable(init));
+  }).then(()=>setTable(init));
 };
 
 export default function CurePage() {

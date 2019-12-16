@@ -28,7 +28,7 @@ export default function ListPage() {
               history.goBack();
             }}
           >
-            BACK{" "}
+            BACK
           </button>
         </div>
       </tableContext.Provider>
