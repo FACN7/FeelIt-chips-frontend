@@ -6,6 +6,15 @@ import "./list.css";
 
 const init = { s0: {}, s1: {}, s2: {}, s3: {}, s4: {}, s5: {}, s6: {}, s7: {} };
 
+const processData = resistanceTable => {
+  const newTable = { ...init };
+  Object.keys(newTable).forEach((sensorArea, idx) => {
+    newTable[sensorArea].layer = resistanceTable.layer[`a${idx}`];
+    newTable[sensorArea].resistance = resistanceTable.resistance[`a${idx}`];
+  });
+  return newTable;
+};
+
 function List({ Curing = true }) {
   const [list, setList] = React.useState([]);
   const [showMore, setShowMore] = React.useState(-1);
@@ -19,11 +28,11 @@ function List({ Curing = true }) {
       .then(res => setList(res.sensors));
   }, []);
   React.useEffect(() => {
-
     if (showMore !== -1) {
+      //fetch by showMore
       fetch("https://api.myjson.com/bins/uwymg")
-      .then(res => res.json())
-      .then(res => setTable(init));
+        .then(res => res.json())
+        .then(res => setTable({ table: processData(res) }));
     }
   }, [showMore]);
 
@@ -41,11 +50,10 @@ function List({ Curing = true }) {
             >
               <span>#{sensor.serialNumber}</span>
               <span>Sensor created {sensor.dateCreated}</span>
-
-              {sensor.serialNumber === showMore ? (
-                <Table Type="res" sensorsProbsNum={2}></Table>
-              ) : null}
             </a>
+            {sensor.serialNumber === showMore ? (
+              <Table Type="res" sensorsProbsNum={2} editable={false}></Table>
+            ) : null}
           </div>
           <button
             onClick={e => {

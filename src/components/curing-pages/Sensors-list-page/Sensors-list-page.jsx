@@ -7,10 +7,9 @@ import tableContext from "../../general/table/tableContext";
 const init = { s0: {}, s1: {}, s2: {}, s3: {}, s4: {}, s5: {}, s6: {}, s7: {} };
 
 let reducer = (table, action) => {
-  if (action.reset) {
-    return JSON.parse(JSON.stringify(init));
-  }
-  console.log("reducer",table);
+  // if (action.reset) {
+  //   return JSON.parse(JSON.stringify(init));
+  // }
   return JSON.parse(JSON.stringify(action.table));
 };
 

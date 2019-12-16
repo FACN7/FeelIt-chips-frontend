@@ -15,12 +15,8 @@
   padding-bottom: 30px;
   margin-bottom: 30px;
 }
-.list-item  .data-container{
-  display: flex;
-  position: relative;
-  justify-content: space-between;
-  align-items: center;
+.list-item .data-container {
+  display: block;
   padding-bottom: 30px;
   margin-bottom: 30px;
-
 }
