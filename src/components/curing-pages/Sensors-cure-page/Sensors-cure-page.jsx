@@ -12,7 +12,6 @@ let reducer = (table, action) => {
   if (action.reset) {
     return JSON.parse(JSON.stringify(init));
   }
-  console.table(action.table);
   return JSON.parse(JSON.stringify(action.table));
 };
 
