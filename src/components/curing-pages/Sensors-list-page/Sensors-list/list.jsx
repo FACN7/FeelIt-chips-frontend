@@ -1,14 +1,14 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import "./list.css";
+import endpointUrl from "../../../../config";
 
 function List({ Curing = true }) {
   const [list, setList] = React.useState([]);
 
   const history = useHistory();
   React.useEffect(() => {
-    // /get-sensors
-    fetch("https://api.myjson.com/bins/gkey0")
+    fetch(`${endpointUrl}/get-sensors`)
       .then(res => res.json())
       .then(res => setList(res.sensors));
   }, []);
