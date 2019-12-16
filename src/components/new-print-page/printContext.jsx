@@ -10,10 +10,10 @@ let reducer = (info, newInfo) => {
 
 const initialState = {
     serialNumber: 3,
-    electrodeType: "",
-    printer: "",
-    inkType: "",
-    concentration: ""
+    electrodeType: null,
+    printer: null,
+    inkType: null,
+    concentration: null
 };
 
 const InfoContext = React.createContext();

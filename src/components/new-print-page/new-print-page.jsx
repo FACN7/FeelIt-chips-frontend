@@ -4,11 +4,14 @@ import PrintForm from "./new-print-form/print-form";
 
 const NewPrintPage = () => {
   const { info, setInfo } = useContext(InfoContext);
+  
   return (
-    <InfoProvider>
+    <div>
+     {/* <InfoProvider> */}
       <PrintForm />
       <button onClick={() => setInfo(null)}>Reset Cache</button>
-    </InfoProvider>
+     {/* </InfoProvider> */}
+    </div>
   );
 };
 

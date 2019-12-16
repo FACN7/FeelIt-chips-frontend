@@ -7,7 +7,8 @@ each item object is of structure {value:"bla bla", text:"pretty bla bla text"}
 const DropDownList = (props) => {
     const setGlobalValue = props.selectItem||((...args)=>{});//this is used to as placeholder for useContext setter
 
-    const [selectedItem, setSelectedItem] = React.useState(props.items[0]);
+    // const [selectedItem, setSelectedItem] = React.useState(props.items[0]);
+    const [selectedItem, setSelectedItem] = React.useState(props.selectedItem||null);
     const [items, setItems] = React.useState([...props.items])
     const changePick = (e) => {
         setSelectedItem(e.target.value)
@@ -23,7 +24,8 @@ const DropDownList = (props) => {
 
     return <div>
       <select onChange={(e) => changePick(e)} name="hours" >
-        {items.map(item => <option value={item.value}>{item.text}</option>)}
+      <option value="" selected disabled hidden>Choose here</option>
+        {items.map(item => <option  value={item.value}>{item.text}</option>)}
       </select>
     </div>;
   };

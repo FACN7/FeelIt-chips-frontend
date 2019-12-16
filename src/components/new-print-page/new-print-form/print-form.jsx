@@ -10,7 +10,10 @@ const PrintForm = () => {
     const handleChange = key => newValue => {
         setInfo({ [key]: newValue });
     };
-
+    const optionsList = ["electrodeType","printer","inkType","concentration"];
+const makeOptionDropDownList = (option,listOfItems)=>{
+    return <DropDownList selectedItem={info[option]} selectItem={handleChange(option)} items={listOfItems} />
+};
     const [electrodeTypes, setElectrodeTypes] = React.useState([]);
     const [printers, setPrinters] = React.useState([]);
     const [inkTypes, setInkTypes] = React.useState([]);
@@ -30,12 +33,13 @@ const PrintForm = () => {
         <div>
             <p>context info is \\{JSON.stringify(info)}\\</p>
             <div className="print-form-container" >
-                <DropDownList selectItem={handleChange("electrodeType")} items={electrodeTypes} />
+                <DropDownList selectedItem={info["electrodeType"]} selectItem={handleChange("electrodeType")} items={electrodeTypes} />
                 <DropDownList selectItem={handleChange("printer")} items={printers} />
                 <DropDownList selectItem={handleChange("inkType")} items={inkTypes} />
                 <DropDownList selectItem={handleChange("concentration")} items={concentrations} />
             </div>
-            
+            <a href="/new-print-page-2"><h3>Next</h3></a>
+            <a href="/"><h3>Back</h3></a>
         </div>
     );
 };
