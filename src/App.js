@@ -13,7 +13,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={SensorsAction} />
         <Route path="/Sensors" component={SensorsPageList}/>
-        <Route path="/cure-chip/:serialNumber" component={CurePage}/>
+        <Route path="/cure-sensor/:serialNumber" component={CurePage}/>
       </Switch>
     </React.Fragment>
   );

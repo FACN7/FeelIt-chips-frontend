@@ -22,8 +22,8 @@ function List({ Curing = true }) {
           <button
             onClick={e => {
               Curing
-                ? history.push(`/cure-chip/${sensor.serialNumber}`)
-                : history.push(`/coat-chip/${sensor.serialNumber}`);
+                ? history.push(`/cure-sensor/${sensor.serialNumber}`)
+                : history.push(`/coat-sensor/${sensor.serialNumber}`);
             }}
           >
             {Curing ? "Go To Curing" : "Go To Coating"}
