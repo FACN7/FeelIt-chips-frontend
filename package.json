@@ -18,7 +18,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "fakeserver": "npm start --prefix fake-server",
-    "start-react":"react-scripts start"
+    "start-react": "react-scripts start"
   },
   "eslintConfig": {
     "extends": "react-app"

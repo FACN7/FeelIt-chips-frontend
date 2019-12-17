@@ -24,11 +24,11 @@ export default function Row({
           ) : (
             <input
               disabled={!editable}
-              value={table[`s${idx - 1}`][first_cell] || ""}
+              value={table[`a${idx - 1}`][first_cell] || ""}
               onChange={e => {
                 if (e.target.value === "")
-                  delete table[`s${idx - 1}`][first_cell];
-                else table[`s${idx - 1}`][first_cell] = e.target.value;
+                  delete table[`a${idx - 1}`][first_cell];
+                else table[`a${idx - 1}`][first_cell] = e.target.value;
                 setTable({ table });
               }}
             />

@@ -4,11 +4,11 @@ import Table from "../../general/table/table";
 import DropList from "../../general/Drop-down-list/Drop-down-list";
 import tableContext from "../../general/table/tableContext";
 import { useHistory } from "react-router-dom";
-import endpointUrl from "../../../config"
+import endpointUrl from "../../../config";
 
-const init = { s0: {}, s1: {}, s2: {}, s3: {}, s4: {}, s5: {}, s6: {}, s7: {} };
+const init = { a0: {}, a1: {}, a2: {}, a3: {}, a4: {}, a5: {}, a6: {}, a7: {} };
 
-let reducer = (table, action) => {
+const reducer = (table, action) => {
   if (action.reset) {
     return JSON.parse(JSON.stringify(init));
   }
@@ -17,20 +17,19 @@ let reducer = (table, action) => {
 };
 
 const items = [
-  { text: "", value: 0 },
   { text: "Thermal", value: 1 },
   { text: "Photonic", value: 2 }
 ];
 
-const postCuring = (setTable,table, type, _id) => {
+const postCuring = (setTable, table, type, _id) => {
   const postData = { _id, curing: { type, ...table } };
   fetch(`${endpointUrl}/curing-table`, {
     method: "POST",
     body: JSON.stringify(postData),
     headers: {
-      "Content-Type":"application/json"
+      "Content-Type": "application/json"
     }
-  }).then(()=>setTable(init));
+  }).then(() => setTable({ table: init }));
 };
 
 export default function CurePage() {
@@ -45,15 +44,14 @@ export default function CurePage() {
           <DropList
             selectItem={e => {
               setTable({ reset: true });
-              e = e === "1" ? 1 : e === "2" ? 2 : 0;
-              setType(items[e].text);
+           setType(e ? items[e - 1].text : "");
             }}
             items={items}
           ></DropList>
           {type === "" ? null : (
             <div className="CuringInput">
               <Table Type={type}></Table>
-              <button onClick={() => postCuring(setTable,table, type)}>
+              <button onClick={() => postCuring(setTable, table, type)}>
                 Add Curing
               </button>
             </div>
@@ -62,7 +60,7 @@ export default function CurePage() {
           <div className="buttonContainer">
             <button
               onClick={e => {
-                history.goBack();
+                history.push("/Sensors");
               }}
             >
               Back
