@@ -8,7 +8,7 @@ export default function Row({
   row,
   sensorsNum,
   sensorsProbsNum,
-  Resistence
+  editable
 }) {
   const columns = [...Array(sensorsNum + 1).keys()];
   const { table, setTable } = React.useContext(tableContext);
@@ -23,6 +23,7 @@ export default function Row({
             first_cell
           ) : (
             <input
+              disabled={!editable}
               value={table[`s${idx - 1}`][first_cell] || ""}
               onChange={e => {
                 if (e.target.value === "")
