@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import DropDownList from "../../general/Drop-down-list/Drop-down-list";
 import { InfoContext } from "../printContext";
 import { useHistory } from "react-router-dom";
+import endpointUrl from "../../../config";
 
 const PrintForm = () => {
   const history = useHistory();
@@ -15,25 +16,14 @@ const PrintForm = () => {
   const handleChange = key => newValue => {
     setInfo({ [key]: newValue });
   };
-  const optionsList = ["electrodeType", "printer", "inkType", "concentration"];
-  const makeOptionDropDownList = (option, listOfItems) => {
-    return (
-      <DropDownList
-        selectedItem={info[option]}
-        selectItem={handleChange(option)}
-        items={listOfItems}
-      />
-    );
-  };
 
   const [electrodeTypes, setElectrodeTypes] = React.useState([]);
   const [printers, setPrinters] = React.useState([]);
   const [inkTypes, setInkTypes] = React.useState([]);
   const [concentrations, setConcentrations] = React.useState([]);
 
-  //fetch the input options from "GET /print-inputs-options" and put them in dropdownlists
   React.useEffect(() => {
-    fetch("https://api.myjson.com/bins/ybtdw")
+    fetch(`${endpointUrl}/print-inputs-options`)
       .then(res => res.json())
       .then(data => {
         setPrinters(convertToDropDownListItems(data.printer));
@@ -46,7 +36,6 @@ const PrintForm = () => {
 
   return (
     <div>
-      <p>context info is \\{JSON.stringify(info)}\\</p>
       <div className="print-form-container">
         <DropDownList
           selectedItem={info["electrodeType"]}
@@ -59,15 +48,9 @@ const PrintForm = () => {
           selectItem={handleChange("concentration")}
           items={concentrations}
         />
+        <p>electrodeBatchDate: {info.electrodeBatchDate}</p>
       </div>
 
-      <button
-        onClick={() => {
-          history.push("/new-print-page-2");
-        }}
-      >
-        NEXT
-      </button>
       <button
         onClick={() => {
           setInfo(null);
@@ -75,6 +58,13 @@ const PrintForm = () => {
         }}
       >
         BACK
+      </button>
+      <button
+        onClick={() => {
+          history.push("/new-print-page-2");
+        }}
+      >
+        NEXT
       </button>
     </div>
   );

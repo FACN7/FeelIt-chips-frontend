@@ -5,7 +5,6 @@ import tableContext from "../general/table/tableContext";
 import Table from "../general/table/table";
 import endpointUrl from "../../config";
 
-
 const init = {
   a0: {},
   a1: {},
@@ -17,24 +16,22 @@ const init = {
   a7: {}
 };
 
-
-
 const NewPrintPage2 = () => {
   /*takes resistance and layers table from form, adds the specs from the previous form and makes 
   one object to be sent to the backend in a POST request
   */
   const processData = table => {
-    const newTable = { specs: {},printingLayers:{},resistance:{}};
+    const newTable = { specs: {}, printingLayers: {}, resistance: {} };
     newTable.specs = JSON.parse(JSON.stringify(info));
     Object.keys(table).forEach((sensorArea, idx) => {
-      newTable.printingLayers[sensorArea] = table[sensorArea].layer||null;
-      newTable.resistance[sensorArea] = table[sensorArea].resistance||null;
+      newTable.printingLayers[sensorArea] = table[sensorArea].layer || null;
+      newTable.resistance[sensorArea] = table[sensorArea].resistance || null;
     });
-    
+
     return newTable;
   };
   const { info, setInfo } = useContext(InfoContext);
-  
+
   const reducer = (table, action) => {
     if (action.reset) {
       return JSON.parse(JSON.stringify(init));
@@ -50,13 +47,17 @@ const NewPrintPage2 = () => {
   return (
     <div>
       <tableContext.Provider value={{ table, setTable }}>
-        <p>inf is {JSON.stringify(info)}</p>
-
         <Table Type="res" sensorsProbsNum={2} editable={true}></Table>
 
         <button
           onClick={() => {
-
+            history.push("/new-print");
+          }}
+        >
+          BACK
+        </button>
+        <button
+          onClick={() => {
             const processedTable = processData(table);
             fetch(`${endpointUrl}/print-resistance-table`, {
               method: "POST",
@@ -64,19 +65,18 @@ const NewPrintPage2 = () => {
               headers: {
                 "Content-Type": "application/json"
               }
-            });
-            setInfo(null);
-            history.push("/");
+            })
+              .then(() => {
+                setInfo(null);
+                history.push("/");
+              })
+              .catch(err => {
+                setInfo(null);
+                history.push("/");
+              });
           }}
         >
-          FINISK
-        </button>
-        <button
-          onClick={() => {
-            history.push("/new-print");
-          }}
-        >
-          BACK
+          FINISH
         </button>
       </tableContext.Provider>
     </div>
