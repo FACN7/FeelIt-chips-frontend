@@ -1,0 +1,20 @@
+{
+  "electrodeType": [
+    { "label": "xShape", "value": "xshape", "image": "image url here" },
+    { "label": "tShape", "value": "tshape", "image": "image url here" }
+  ],
+  "printer": [
+    { "label": "printer 1", "value": "printer1" },
+    { "label": "printer 2", "value": "printer2" }
+  ],
+  "inkType": [
+    { "label": "Ink Type 1", "value": "inktype1" },
+    { "label": "Ink Type 2", "value": "inktype2" }
+  ],
+  "concentration": [
+    { "label": "25%", "value": "25" },
+    { "label": "50%", "value": "50" },
+    { "label": "75%", "value": "75" },
+    { "label": "100%", "value": "100" }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "specs": {
+    "electrodeType": "xshape",
+    "printer": "Printer 1",
+    "inkType": "Ink type 2",
+    "concentration": "50%",
+    "electrodeBatchDate": "12/3/2019-vef"
+  },
+  "printingLayers": {
+    "a0": 2,
+    "a1": 2,
+    "a2": 2,
+    "a3": 2,
+    "a4": 2,
+    "a5": 2,
+    "a6": 2,
+    "a7": 2
+  },
+  "resistance": {
+    "a0": "2",
+    "a1": "2",
+    "a2": "2",
+    "a3": "2",
+    "a4": "2",
+    "a5": "2",
+    "a6": "2",
+    "a7": "2"
+  }
+}
