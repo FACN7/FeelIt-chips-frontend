@@ -1,0 +1,7 @@
+{
+  "dropdown": "electrodeType",
+  "values": [
+    { "label": "xShape", "value": "xshape" },
+    { "label": "tShape", "value": "tshape" }
+  ]
+}
