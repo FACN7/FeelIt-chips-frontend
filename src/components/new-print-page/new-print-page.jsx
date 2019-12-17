@@ -7,10 +7,9 @@ const NewPrintPage = () => {
   
   return (
     <div>
-     {/* <InfoProvider> */}
+      
       <PrintForm />
-      <button onClick={() => setInfo(null)}>Reset Cache</button>
-     {/* </InfoProvider> */}
+       
     </div>
   );
 };

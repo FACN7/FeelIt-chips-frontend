@@ -1,0 +1,22 @@
+.Container {
+  display: grid;
+  grid-row-gap: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+.CuringInput {
+  display: flex;
+  flex-direction: column;
+}
+.CuringInput button {
+  width: fit-content;
+  align-self: flex-end;
+  margin-top: 10px;
+}
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 200px;
+}

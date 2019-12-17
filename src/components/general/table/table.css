@@ -1,0 +1,15 @@
+
+  table {
+    width: 600px;
+    height: 400px;
+    background: white;
+    border: 1px solid black;
+
+  }
+  
+  .tableContainer {
+    border: 1px solid black;
+    width: 600px;
+    height: 400px;
+    margin: auto;
+  }
