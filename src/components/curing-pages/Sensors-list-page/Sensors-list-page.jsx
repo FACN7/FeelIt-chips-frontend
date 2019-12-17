@@ -4,9 +4,9 @@ import { useHistory } from "react-router-dom";
 import "./Sensors-list-page.css";
 import tableContext from "../../general/table/tableContext";
 
-const init = { s0: {}, s1: {}, s2: {}, s3: {}, s4: {}, s5: {}, s6: {}, s7: {} };
+const init = { a0: {}, a1: {}, a2: {}, a3: {}, a4: {}, a5: {}, a6: {}, a7: {} };
 
-let reducer = (table, action) => {
+const reducer = (table, action) => {
   return JSON.parse(JSON.stringify(action.table));
 };
 
@@ -22,7 +22,7 @@ export default function ListPage() {
           <List></List>
           <button
             onClick={e => {
-              history.goBack();
+              history.push("/");
             }}
           >
             BACK

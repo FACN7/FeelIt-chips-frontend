@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import DropDownList from "../../general/dropDownList";
+import DropDownList from "../../general/Drop-down-list/Drop-down-list";
 import { InfoContext } from "../printContext";
 import { useHistory } from "react-router-dom";
 
