@@ -25,7 +25,7 @@ export default function ListPage() {
               history.push("/");
             }}
           >
-            BACK{" "}
+            BACK
           </button>
         </div>
       </tableContext.Provider>
