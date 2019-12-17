@@ -1,5 +1,6 @@
 import React, { useReducer, useEffect } from "react";
-
+let currentDate = new Date();
+const electrodeBatchDate= ""+currentDate.getMonth()+((currentDate.getFullYear()).toString().slice(-2));
 let reducer = (info, newInfo) => {
   if (newInfo === null) {
     localStorage.removeItem("info");
@@ -9,11 +10,11 @@ let reducer = (info, newInfo) => {
 };
 
 const initialState = {
-    serialNumber: 3,
     electrodeType: null,
     printer: null,
     inkType: null,
-    concentration: null
+    concentration: null,
+    electrodeBatchDate
 };
 
 const InfoContext = React.createContext();

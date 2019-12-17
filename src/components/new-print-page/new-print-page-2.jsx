@@ -4,7 +4,7 @@ import { InfoContext } from "./printContext";
 import tableContext from "../general/table/tableContext";
 import Table from "../general/table/table";
 import endpointUrl from "../../config";
-// import PrintForm from "./new-print-form/print-form";
+
 
 const init = {
   a0: {},
@@ -16,20 +16,25 @@ const init = {
   a6: {},
   a7: {}
 };
-const processData = table => {
-  const newTable = { layer:{},resistance:{}};
-  Object.keys(table).forEach((sensorArea, idx) => {
-    newTable.layer[sensorArea] = table[sensorArea].layer||null;
-    newTable.resistance[sensorArea] = table[sensorArea].resistance||null;
-  });
-  
-  return newTable;
-};
+
 
 
 const NewPrintPage2 = () => {
+  /*takes resistance and layers table from form, adds the specs from the previous form and makes 
+  one object to be sent to the backend in a POST request
+  */
+  const processData = table => {
+    const newTable = { specs: {},printingLayers:{},resistance:{}};
+    newTable.specs = JSON.parse(JSON.stringify(info));
+    Object.keys(table).forEach((sensorArea, idx) => {
+      newTable.printingLayers[sensorArea] = table[sensorArea].layer||null;
+      newTable.resistance[sensorArea] = table[sensorArea].resistance||null;
+    });
+    
+    return newTable;
+  };
   const { info, setInfo } = useContext(InfoContext);
-
+  
   const reducer = (table, action) => {
     if (action.reset) {
       return JSON.parse(JSON.stringify(init));
