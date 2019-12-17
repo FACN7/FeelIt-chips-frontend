@@ -42,9 +42,9 @@ export default function CurePage() {
       <tableContext.Provider value={{ table, setTable }}>
         <div className="Container">
           <DropList
-            selectItem={e => {
+            selectItem={itemIdx => {
               setTable({ reset: true });
-           setType(e ? items[e - 1].text : "");
+              setType(itemIdx ? items[itemIdx - 1].text : "");
             }}
             items={items}
           ></DropList>
