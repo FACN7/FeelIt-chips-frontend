@@ -1,9 +1,10 @@
 import React from "react";
 import "./Sensors-cure-page.css";
 import Table from "../../general/table/table";
-import DropList from "../../general/dropDownList";
+import DropList from "../../general/Drop-down-list/Drop-down-list";
 import tableContext from "../../general/table/tableContext";
 import { useHistory } from "react-router-dom";
+import endpointUrl from "../../../config"
 
 const init = { s0: {}, s1: {}, s2: {}, s3: {}, s4: {}, s5: {}, s6: {}, s7: {} };
 
@@ -23,13 +24,13 @@ const items = [
 
 const postCuring = (setTable,table, type, _id) => {
   const postData = { _id, curing: { type, ...table } };
-  fetch("/curing-table", {
+  fetch(`${endpointUrl}/curing-table`, {
     method: "POST",
     body: JSON.stringify(postData),
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type":"application/json"
     }
-  }).then(setTable(init));
+  }).then(()=>setTable(init));
 };
 
 export default function CurePage() {

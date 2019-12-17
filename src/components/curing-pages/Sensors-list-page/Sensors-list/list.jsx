@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import tableContext from "../../../general/table/tableContext";
 import Table from "../../../general/table/table";
 import "./list.css";
+import endpointUrl from "../../../../config";
 
 const init = { s0: {}, s1: {}, s2: {}, s3: {}, s4: {}, s5: {}, s6: {}, s7: {} };
 
@@ -22,8 +23,7 @@ function List({ Curing = true }) {
 
   const history = useHistory();
   React.useEffect(() => {
-    // /get-sensors
-    fetch("https://api.myjson.com/bins/gkey0")
+    fetch(`${endpointUrl}/get-sensors`)
       .then(res => res.json())
       .then(res => setList(res.sensors));
   }, []);

@@ -1,29 +1,24 @@
 import React from "react";
-import "./index.css";
-/*a component that takes the an array of objects called "items"
-each item object is of structure {value:"bla bla", text:"pretty bla bla text"}
-*/
+import "./Drop-down-list.css";
 
 const DropDownList = props => {
   const setGlobalValue = props.selectItem || ((...args) => {}); //this is used to as placeholder for useContext setter
 
-  const [selectedItem, setSelectedItem] = React.useState(props.items[0]);
-  const [items, setItems] = React.useState([...props.items]);
+  const {items} = props;
+  const [pickedItem, setPickedItem] = React.useState(props.items[0]);
+  
   const changePick = e => {
-    setSelectedItem(e.target.value);
+    setPickedItem(e.target.value);
   };
 
   React.useEffect(() => {
-    setGlobalValue(selectedItem);
-  }, [selectedItem]);
-
-  React.useEffect(() => {
-    setItems(props.items);
-  }, [props]);
+    setGlobalValue(pickedItem);
+  }, [pickedItem]);
 
   return (
     <div>
       <select onChange={e => changePick(e)} name="hours">
+        {/* <option selected disabled value="0">Select Here</option> */}
         {items.map(item => (
           <option key={item.value} value={item.value}>{item.text}</option>
         ))}
