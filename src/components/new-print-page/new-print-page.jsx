@@ -1,9 +1,8 @@
-import React, { useContext } from "react";
-import { InfoContext, InfoProvider } from "./printContext";
+import React from "react";
 import PrintForm from "./new-print-form/print-form";
 
 const NewPrintPage = () => {
-  const { info, setInfo } = useContext(InfoContext);
+  
   
   return (
     <div>

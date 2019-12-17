@@ -19,7 +19,7 @@ const initialState = {
 const InfoContext = React.createContext();
 const localState = JSON.parse(localStorage.getItem("info"));
 
-function InfoProvider(props) {
+function NewPrintInfoProvider(props) {
     const [info, setInfo] = useReducer(reducer, localState || initialState);
     useEffect(() => {
       localStorage.setItem("info", JSON.stringify(info));
@@ -32,4 +32,4 @@ function InfoProvider(props) {
   );
 }
 
-export { InfoContext, InfoProvider };
+export { InfoContext, NewPrintInfoProvider };

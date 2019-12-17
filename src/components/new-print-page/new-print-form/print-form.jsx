@@ -70,6 +70,7 @@ const PrintForm = () => {
       </button>
       <button
         onClick={() => {
+          setInfo(null);
           history.push("/");
         }}
       >

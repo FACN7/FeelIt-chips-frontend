@@ -1,14 +1,34 @@
 import React, { useContext } from "react";
-import { InfoContext, InfoProvider } from "./printContext";
+import {useHistory} from "react-router-dom";
+import { InfoContext } from "./printContext";
 // import PrintForm from "./new-print-form/print-form";
 
 const NewPrintPage2 = () => {
-  const { info, setInfo } = useContext(InfoContext);
+  const { info,setInfo } = useContext(InfoContext);
+  const history = useHistory();
   return (
     <div>
       <p>inf is {JSON.stringify(info)}</p>
-      <a href="/"><h3>Finish</h3></a>
-            <a href="/new-print"><h3>Back</h3></a>
+
+      
+
+      <button
+        onClick={() => {
+          setInfo(null)
+          history.push("/");
+        }}
+      >
+        FINISH
+      </button>
+      <button
+        onClick={() => {
+          history.push("/new-print");
+        }}
+      >
+        BACK
+      </button>
+
+
     </div>
   );
 };
