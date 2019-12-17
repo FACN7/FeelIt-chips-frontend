@@ -7,6 +7,10 @@ import endpointUrl from "../../../../config";
 
 const init = { a0: {}, a1: {}, a2: {}, a3: {}, a4: {}, a5: {}, a6: {}, a7: {} };
 
+const ConvertTime = date => {
+  return new Date(date).toLocaleString();
+};
+
 const processData = resistanceTable => {
   const newTable = { ...init };
   Object.keys(newTable).forEach((sensorArea, idx) => {
@@ -33,6 +37,7 @@ function List({ Curing = true }) {
         .then(res => res.json())
         .then(res => setTable({ table: processData(res) }));
     }
+    console.log(new Date("2019-12-16T12:09:52.425Z"));
   }, [showMoreById]);
 
   return (
@@ -48,7 +53,7 @@ function List({ Curing = true }) {
               }
             >
               <span>#{sensor.serialNumber}</span>
-              <span>Sensor created {sensor.dateCreated}</span>
+              <span>Sensor created at {ConvertTime(sensor.createdAt)}</span>
             </div>
             {sensor.serialNumber === showMoreById ? (
               <Table Type="res" sensorsProbsNum={2} editable={false}></Table>

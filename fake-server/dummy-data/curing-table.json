@@ -1,0 +1,70 @@
+{
+  "_id": "asdadkasidb38383hr",
+  "curing": {
+    "type": "thermal",
+    "a0": {
+      "min": 2,
+      "resistance": "2",
+      "temperature": 40,
+      "valid": true,
+      "pulses": null,
+      "height": null
+    },
+    "a1": {
+      "min": 2,
+      "resistance": "2",
+      "temperature": 40,
+      "valid": true,
+      "pulses": null,
+      "height": null
+    },
+    "a2": {
+      "min": 2,
+      "resistance": "2",
+      "temperature": 40,
+      "valid": true,
+      "pulses": null,
+      "height": null
+    },
+    "a3": {
+      "min": 2,
+      "resistance": "2",
+      "temperature": 40,
+      "valid": true,
+      "pulses": null,
+      "height": null
+    },
+    "a4": {
+      "min": 2,
+      "resistance": "2",
+      "temperature": 40,
+      "valid": true,
+      "pulses": null,
+      "height": null
+    },
+    "a5": {
+      "min": 2,
+      "resistance": "2",
+      "temperature": 40,
+      "valid": true,
+      "pulses": null,
+      "height": null
+    },
+    "a6": {
+      "min": 2,
+      "resistance": "2",
+      "temperature": 40,
+      "valid": true,
+      "pulses": null,
+      "height": null
+    },
+    "a7": {
+      "min": 2,
+      "resistance": "2",
+      "temperature": 40,
+      "valid": true,
+      "pulses": null,
+      "height": null
+    }
+  }
+}
