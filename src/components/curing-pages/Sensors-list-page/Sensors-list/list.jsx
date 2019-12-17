@@ -37,7 +37,6 @@ function List({ Curing = true }) {
         .then(res => res.json())
         .then(res => setTable({ table: processData(res) }));
     }
-    console.log(new Date("2019-12-16T12:09:52.425Z"));
   }, [showMoreById]);
 
   return (
