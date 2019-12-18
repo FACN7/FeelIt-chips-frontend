@@ -41,19 +41,25 @@ export default function CurePage() {
     <React.Fragment>
       <tableContext.Provider value={{ table, setTable }}>
         <div className="Container">
-          <DropList
-            selectItem={itemIdx => {
-              setTable({ reset: true });
-              setType(itemIdx ? items[itemIdx - 1].text : "");
-            }}
-            items={items}
-          ></DropList>
+          <div className="dropDownContainer">
+            <span>Curing :</span>
+            <DropList className="DropListContainer"
+              selectItem={itemIdx => {
+                setTable({ reset: true });
+                setType(itemIdx ? items[itemIdx - 1].text : "");
+              }}
+              items={items}
+            ></DropList>
+          </div>
           {type === "" ? null : (
             <div className="CuringInput">
               <Table Type={type}></Table>
-              <button onClick={() => postCuring(setTable, table, type)}>
-                Add Curing
-              </button>
+              <div className="buttonContainer">
+                <button>History</button>
+                <button onClick={() => postCuring(setTable, table, type)}>
+                  Add Curing
+                </button>
+              </div>
             </div>
           )}
 

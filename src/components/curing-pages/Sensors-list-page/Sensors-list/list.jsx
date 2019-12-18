@@ -65,7 +65,7 @@ function List({ Curing = true }) {
                 : history.push(`/coat-sensor/${sensor.serialNumber}`);
             }}
           >
-            {Curing ? "Go To Curing" : "Go To Coating"}
+            {Curing ? "cure" : "coat"}
           </button>
         </div>
       ))}

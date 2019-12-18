@@ -16,7 +16,7 @@ const DropDownList = props => {
   }, [pickedItem]);
 
   return (
-    <div>
+    <div className="selectContainer">
       <select value={pickedItem||0} onChange={e => changePick(e)} name="hours">
         <option  disabled value={0}>Select Here</option>
         {items.map(item => (

@@ -5,18 +5,25 @@
   width: 500px;
   margin-left: auto;
   margin-right: auto;
+  padding-top: 20px;
 }
 
 .list-item {
   display: flex;
   position: relative;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
+  border-radius: 10px;
   padding-bottom: 30px;
   margin-bottom: 30px;
 }
 .list-item .data-container {
-  display: block;
-  padding-bottom: 30px;
-  margin-bottom: 30px;
+  padding: 10px;
+  background-color: rgb(220, 220, 220);
+  border: 2px solid gray;
+  border-radius: 10px;
+}
+.list-item .data-container div {
+  display: flex;
+  flex-direction: column;
 }
