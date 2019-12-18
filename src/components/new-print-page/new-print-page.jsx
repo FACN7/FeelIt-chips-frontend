@@ -1,9 +1,10 @@
 import React from "react";
 import PrintForm from "./new-print-form/print-form";
 
+
 const NewPrintPage = () => {
   return (
-    <div>
+    <div className="Container">
       <PrintForm />
     </div>
   );

@@ -45,41 +45,42 @@ const NewPrintPage2 = () => {
   const history = useHistory();
 
   return (
-    <div>
-      <tableContext.Provider value={{ table, setTable }}>
+    <tableContext.Provider value={{ table, setTable }}>
+      <React.Fragment>
         <Table Type="res" sensorsProbsNum={2} editable={true}></Table>
-
-        <button
-          onClick={() => {
-            history.push("/new-print");
-          }}
-        >
-          BACK
-        </button>
-        <button
-          onClick={() => {
-            const processedTable = processData(table);
-            fetch(`${endpointUrl}/print-resistance-table`, {
-              method: "POST",
-              body: JSON.stringify(processedTable),
-              headers: {
-                "Content-Type": "application/json"
-              }
-            })
-              .then(() => {
-                setInfo(null);
-                history.push("/");
+        <div className="buttonContainer">
+          <button
+            onClick={() => {
+              history.push("/new-print");
+            }}
+          >
+            BACK
+          </button>
+          <button
+            onClick={() => {
+              const processedTable = processData(table);
+              fetch(`${endpointUrl}/print-resistance-table`, {
+                method: "POST",
+                body: JSON.stringify(processedTable),
+                headers: {
+                  "Content-Type": "application/json"
+                }
               })
-              .catch(err => {
-                setInfo(null);
-                alert("oops! something went wrong, please try again");
-              });
-          }}
-        >
-          FINISH
-        </button>
-      </tableContext.Provider>
-    </div>
+                .then(() => {
+                  setInfo(null);
+                  history.push("/");
+                })
+                .catch(err => {
+                  setInfo(null);
+                  alert("oops! something went wrong, please try again");
+                });
+            }}
+          >
+            DONE
+          </button>
+        </div>
+      </React.Fragment>
+    </tableContext.Provider>
   );
 };
 

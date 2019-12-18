@@ -35,38 +35,39 @@ const PrintForm = () => {
   }, []);
 
   return (
-    <div>
-      <div className="print-form-container">
-        <DropDownList
-          selectedItem={info["electrodeType"]}
-          selectItem={handleChange("electrodeType")}
-          items={electrodeTypes}
-        />
-        <DropDownList selectItem={handleChange("printer")} items={printers} />
-        <DropDownList selectItem={handleChange("inkType")} items={inkTypes} />
-        <DropDownList
-          selectItem={handleChange("concentration")}
-          items={concentrations}
-        />
-        <p>electrodeBatchDate: {info.electrodeBatchDate}</p>
+    <React.Fragment>
+      {/* <div className="print-form-container"> */}
+      <DropDownList
+        selectedItem={info["electrodeType"]}
+        selectItem={handleChange("electrodeType")}
+        items={electrodeTypes}
+      />
+      <DropDownList selectItem={handleChange("printer")} items={printers} />
+      <DropDownList selectItem={handleChange("inkType")} items={inkTypes} />
+      <DropDownList
+        selectItem={handleChange("concentration")}
+        items={concentrations}
+      />
+      <p>electrodeBatchDate: {info.electrodeBatchDate}</p>
+      {/* </div> */}
+      <div className="buttonContainer">
+        <button
+          onClick={() => {
+            setInfo(null);
+            history.push("/");
+          }}
+        >
+          BACK
+        </button>
+        <button
+          onClick={() => {
+            history.push("/new-print-page-2");
+          }}
+        >
+          NEXT
+        </button>
       </div>
-
-      <button
-        onClick={() => {
-          setInfo(null);
-          history.push("/");
-        }}
-      >
-        BACK
-      </button>
-      <button
-        onClick={() => {
-          history.push("/new-print-page-2");
-        }}
-      >
-        NEXT
-      </button>
-    </div>
+    </React.Fragment>
   );
 };
 export default PrintForm;
