@@ -8,7 +8,7 @@ export default function SensorsActionPage() {
   const history = useHistory();
   return (
     <React.Fragment>
-      <div className="Container">
+      <div className="actionContainer">
         <div className="buttons-container">
           <div className="button-container">
             <button

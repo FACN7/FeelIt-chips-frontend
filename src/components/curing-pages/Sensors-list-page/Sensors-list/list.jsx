@@ -58,15 +58,17 @@ function List({ Curing = true }) {
               <Table Type="res" sensorsProbsNum={2} editable={false}></Table>
             ) : null}
           </div>
-          <button
-            onClick={e => {
-              Curing
-                ? history.push(`/cure-sensor/${sensor.serialNumber}`)
-                : history.push(`/coat-sensor/${sensor.serialNumber}`);
-            }}
-          >
-            {Curing ? "cure" : "coat"}
-          </button>
+          <div className="buttonContainer">
+            <button
+              onClick={e => {
+                history.push(`/cure-sensor/${sensor.serialNumber}`);
+              }}
+            >
+              cure
+            </button>
+            <button onClick={e => {}}>coat</button>
+            <button onClick={e => {}}>Test</button>
+          </div>
         </div>
       ))}
     </div>
