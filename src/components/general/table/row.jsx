@@ -12,7 +12,6 @@ export default function Row({
 }) {
   const columns = [...Array(sensorsNum + 1).keys()];
   const { table, setTable } = React.useContext(tableContext);
-
   return (
     <tr className="row" key={row}>
       {columns.map(idx => (
