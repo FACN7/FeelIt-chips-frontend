@@ -24,12 +24,20 @@ export default function ListPage() {
           <div className="header">
             <div className="inputContainer">
               <input type="text" />
-              <img className="loupe"  src={Loupe} alt="printer" />
+              <img className="loupe" src={Loupe} alt="printer" />
             </div>
-            <img className="printer" src={PrinterIcon} alt="printer" />
+            <img
+              className="printer"
+              src={PrinterIcon}
+              alt="printer"
+              onClick={e => {
+                history.push("/");
+              }}
+            />
           </div>
           <List></List>
           <button
+            id="back"
             onClick={e => {
               history.push("/");
             }}

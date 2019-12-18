@@ -43,7 +43,8 @@ export default function CurePage() {
         <div className="Container">
           <div className="dropDownContainer">
             <span>Curing :</span>
-            <DropList className="DropListContainer"
+            <DropList
+              className="DropListContainer"
               selectItem={itemIdx => {
                 setTable({ reset: true });
                 setType(itemIdx ? items[itemIdx - 1].text : "");

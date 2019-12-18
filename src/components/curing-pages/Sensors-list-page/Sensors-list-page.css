@@ -2,17 +2,29 @@
   display: flex;
   flex-flow: column;
   align-items: center;
-  margin:100px;
+  margin-top: 100px;
+  margin-bottom: 200px;
 }
 
 .Container button {
   display: flex;
   justify-self: flex-start;
 }
+#back {
+  width: 40%;
+  height: 40px;
+  display: flex;
+  align-self: flex-start;
+  justify-content: center;
+  margin-left: 30px;
+  border: 0.2em solid rgba(155, 109, 109, 0);
+  border-radius: 1rem;
+  font-size: 20px;
+}
 
 .Container span {
   display: flex;
-    justify-self: center;
+  justify-self: center;
   padding-bottom: 40px;
   height: 15px;
 }
@@ -21,11 +33,10 @@
   display: flex;
   padding-bottom: 30px;
   height: 27px;
-  width: 500px;
-  justify-content: space-around;
+  width: 80%;
+  justify-content: space-between;
   margin-left: auto;
   margin-right: auto;
-
 }
 .inputContainer {
   border: 2px solid gray;
@@ -33,10 +44,10 @@
   align-items: center;
   justify-content: space-between;
   height: 27px;
-
+  width: 70%;
 }
 .inputContainer input {
-  width: 300px;
+  width: 100%;
   border: none;
   height: inherit;
   outline: none;
