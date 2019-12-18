@@ -20,7 +20,7 @@ export default function ListPage() {
   return (
     <React.Fragment>
       <tableContext.Provider value={{ table, setTable }}>
-        <div className="Container">
+        <div className="listContainer">
           <div className="header">
             <div className="inputContainer">
               <input type="text" />
@@ -31,7 +31,7 @@ export default function ListPage() {
               src={PrinterIcon}
               alt="printer"
               onClick={e => {
-                history.push("/");
+                history.push("/new-print");
               }}
             />
           </div>

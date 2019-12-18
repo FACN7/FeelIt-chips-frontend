@@ -1,18 +1,19 @@
-.Container {
+.curingContainer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+  padding-left: 20px;
 }
 
-.Container .dropDownContainer {
+.curingContainer .dropDownContainer {
   display: flex;
   align-items: baseline;
   justify-content: center;
   margin-top: 50px;
   width: 100%;
 }
-.Container .dropDownContainer span {
+.curingContainer .dropDownContainer span {
   padding-right: 15px;
   font-size: 2rem;
 }
@@ -39,20 +40,20 @@ select {
   height: 80px;
   font-size: 20px;
 }
-.CuringInput .buttonContainer {
+.CuringInput .curingButtonContainer {
   display: flex;
   margin-top: 20px;
   justify-content: space-between;
   width: 100%;
 }
-.buttonContainer {
+.curingButtonContainer {
   display: flex;
   margin-top: 20px;
   justify-content: space-between;
   width: 100%;
-  padding-bottom: 40px;
+  padding-bottom: 120px;
 }
-.buttonContainer button {
+.curingButtonContainer button {
   width: 40%;
   height: 40px;
   display: flex;

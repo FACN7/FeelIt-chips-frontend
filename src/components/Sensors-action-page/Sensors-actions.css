@@ -1,14 +1,15 @@
-.Container {
+.actionContainer {
   display: flex;
+  flex-flow: column;
   align-items: center;
-
+  margin-top: 100px;
+  margin-bottom: 200px;
 }
 .buttons-container {
   display: flex;
   flex-flow: column;
   align-items: center;
-  margin:100px;
-  
+  margin: 100px;
 }
 .buttons-container img {
   width: 45px;
@@ -24,6 +25,6 @@
   margin: 10px;
 }
 
-button span{
+.buttons-container button span {
   font-size: 1.5rem;
 }

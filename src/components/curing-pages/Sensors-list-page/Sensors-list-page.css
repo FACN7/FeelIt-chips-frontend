@@ -1,4 +1,4 @@
-.Container {
+.listContainer {
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -6,11 +6,12 @@
   margin-bottom: 200px;
 }
 
-.Container button {
+.listContainer button {
   display: flex;
   justify-self: flex-start;
 }
 #back {
+  margin-top: 25%;
   width: 40%;
   height: 40px;
   display: flex;
@@ -22,7 +23,7 @@
   font-size: 20px;
 }
 
-.Container span {
+.listContainer span {
   display: flex;
   justify-self: center;
   padding-bottom: 40px;

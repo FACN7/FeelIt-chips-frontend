@@ -40,7 +40,7 @@ export default function CurePage() {
   return (
     <React.Fragment>
       <tableContext.Provider value={{ table, setTable }}>
-        <div className="Container">
+        <div className="curingContainer">
           <div className="dropDownContainer">
             <span>Curing :</span>
             <DropList
@@ -55,16 +55,20 @@ export default function CurePage() {
           {type === "" ? null : (
             <div className="CuringInput">
               <Table Type={type}></Table>
-              <div className="buttonContainer">
+              <div className="curingButtonContainer">
                 <button>History</button>
-                <button onClick={() => postCuring(setTable, table, type)}>
+                <button
+                  onClick={() => {
+                    postCuring(setTable, table, type);
+                  }}
+                >
                   Add Curing
                 </button>
               </div>
             </div>
           )}
 
-          <div className="buttonContainer">
+          <div className="curingButtonContainer">
             <button
               onClick={e => {
                 history.push("/Sensors");
