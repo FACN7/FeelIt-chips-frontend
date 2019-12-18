@@ -72,7 +72,7 @@ const NewPrintPage2 = () => {
               })
               .catch(err => {
                 setInfo(null);
-                history.push("/");
+                alert("oops! something went wrong, please try again");
               });
           }}
         >
