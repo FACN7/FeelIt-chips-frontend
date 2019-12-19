@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import "./global.css";
 import { Route, Switch } from "react-router-dom";
 import PrintPage from "./components/new-print-page/new-print-page";
 import PrintPage2 from "./components/new-print-page/new-print-page-2";

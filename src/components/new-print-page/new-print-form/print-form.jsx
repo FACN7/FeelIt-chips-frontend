@@ -35,38 +35,33 @@ const PrintForm = () => {
   }, []);
 
   return (
-    <div>
+    <React.Fragment>
       <div className="print-form-container">
-        <DropDownList
-          selectedItem={info["electrodeType"]}
-          selectItem={handleChange("electrodeType")}
-          items={electrodeTypes}
-        />
-        <DropDownList selectItem={handleChange("printer")} items={printers} />
-        <DropDownList selectItem={handleChange("inkType")} items={inkTypes} />
-        <DropDownList
-          selectItem={handleChange("concentration")}
-          items={concentrations}
-        />
-        <p>electrodeBatchDate: {info.electrodeBatchDate}</p>
-      </div>
 
-      <button
-        onClick={() => {
-          setInfo(null);
-          history.push("/");
-        }}
-      >
-        BACK
-      </button>
-      <button
-        onClick={() => {
-          history.push("/new-print-page-2");
-        }}
-      >
-        NEXT
-      </button>
-    </div>
+        <div className="label"><label>Electrode Type</label><DropDownList selectItem={handleChange("electrodeType")} items={electrodeTypes} /></div>
+        <div className="label"><label>Printer       </label><DropDownList selectItem={handleChange("printer")} items={printers} /></div>
+        <div className="label"><label>Ink Type      </label><DropDownList selectItem={handleChange("inkType")} items={inkTypes} /></div>
+        <div className="label"><label>Concentration </label><DropDownList selectItem={handleChange("concentration")} items={concentrations} /></div>
+        <div className="label"><label>Batch Date :  </label> {info.electrodeBatchDate}</div>
+      </div>
+      <div className="navigationContainer">
+        <button
+          onClick={() => {
+            setInfo(null);
+            history.push("/");
+          }}
+        >
+          BACK
+        </button>
+        <button
+          onClick={() => {
+            history.push("/new-print-page-2");
+          }}
+        >
+          NEXT
+        </button>
+      </div>
+    </React.Fragment>
   );
 };
 export default PrintForm;

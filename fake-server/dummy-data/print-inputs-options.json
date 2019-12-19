@@ -1,7 +1,7 @@
 {
   "electrodeType": [
-    { "label": "xShape", "value": "xshape", "image": "image url here" },
-    { "label": "tShape", "value": "tshape", "image": "image url here" }
+    { "label": "xShape", "value": "xshape", "image": "https://www.researchgate.net/profile/Hadi_Heidari/publication/281105708/figure/fig4/AS:614191505358851@1523446074375/Full-Wheatstone-bridge-circuit-models-the-cross-shaped-horizontal-Hall-effect-sensor-x.png" },
+    { "label": "tShape", "value": "tshape", "image": "https://assets.alliedelec.com/c_scale,w_300,f_auto,d_no_image.png/70178282_s01_r01_c02.jpg" }
   ],
   "printer": [
     { "label": "printer 1", "value": "printer1" },
