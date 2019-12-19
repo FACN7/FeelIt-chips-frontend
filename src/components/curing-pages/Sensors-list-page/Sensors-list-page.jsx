@@ -1,6 +1,9 @@
 import React from "react";
 import List from "./Sensors-list/list";
 import { useHistory } from "react-router-dom";
+import PrinterIcon from "../../../Icons/printer-with-plus.svg";
+import Loupe from "../../../Icons/loupe.svg";
+
 import "./Sensors-list-page.css";
 import tableContext from "../../general/table/tableContext";
 
@@ -17,10 +20,24 @@ export default function ListPage() {
   return (
     <React.Fragment>
       <tableContext.Provider value={{ table, setTable }}>
-        <div className="Container">
-          <span>Hello please select sensor to cure</span>
+        <div className="listContainer">
+          <div className="header">
+            <div className="inputContainer">
+              <input type="text" />
+              <img className="loupe" src={Loupe} alt="printer" />
+            </div>
+            <img
+              className="printer"
+              src={PrinterIcon}
+              alt="printer"
+              onClick={e => {
+                history.push("/new-print");
+              }}
+            />
+          </div>
           <List></List>
           <button
+            id="back"
             onClick={e => {
               history.push("/");
             }}

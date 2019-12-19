@@ -1,9 +1,31 @@
-.Container {
-  display: grid;
-  grid-row-gap: 10px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 20px;
+.curingContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding-left: 20px;
+}
+
+.curingContainer .dropDownContainer {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  margin-top: 50px;
+  width: 100%;
+}
+.curingContainer .dropDownContainer span {
+  padding-right: 15px;
+  font-size: 2rem;
+}
+.selectContainer {
+  width: 60%;
+  height: 40px;
+}
+select {
+  width: 100%;
+  height: 100%;
+  font-size: 2rem;
+  color: black;
 }
 
 .CuringInput {
@@ -13,10 +35,38 @@
 .CuringInput button {
   width: fit-content;
   align-self: flex-end;
-  margin-top: 10px;
+  border: 0.2em solid rgba(155, 109, 109, 0);
+  border-radius: 2em;
+  height: 80px;
+  font-size: 20px;
 }
-.buttonContainer {
+.CuringInput .curingButtonContainer {
   display: flex;
+  margin-top: 20px;
   justify-content: space-between;
-  margin-top: 200px;
+  width: 100%;
+}
+.curingButtonContainer {
+  display: flex;
+  margin-top: 20px;
+  justify-content: space-between;
+  width: 100%;
+  padding-bottom: 120px;
+}
+.curingButtonContainer button {
+  width: 40%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  border: 0.2em solid rgba(155, 109, 109, 0);
+  border-radius: 1rem;
+  font-size: 20px;
+}
+
+.tableContainer {
+  width: 100%;
+}
+
+table {
+  width: 100%;
 }

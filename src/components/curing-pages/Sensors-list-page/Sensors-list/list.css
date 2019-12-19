@@ -2,9 +2,9 @@
   display: flex;
   flex-flow: column wrap;
   justify-content: space-between;
-  width: 500px;
-  margin-left: auto;
-  margin-right: auto;
+  align-content: center;
+  width: 100%;
+  padding-top: 20px;
 }
 
 .list-item {
@@ -12,11 +12,36 @@
   position: relative;
   justify-content: space-between;
   align-items: center;
+  width: 80%;
+  border-radius: 10px;
   padding-bottom: 30px;
   margin-bottom: 30px;
 }
 .list-item .data-container {
-  display: block;
-  padding-bottom: 30px;
-  margin-bottom: 30px;
+  padding: 10px;
+  background-color: rgb(220, 220, 220);
+  border: 2px solid gray;
+  border-radius: 10px;
+  width: 70%;
+}
+.list-item .data-container div {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.buttonContainer button {
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  border: 0.2em solid rgba(155, 109, 109, 0);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  width: 100%;
+}
+.list-item .buttonContainer {
+  display: flex;
+  flex-direction: column;
+  width: 10%;
+  justify-content: center;
 }
