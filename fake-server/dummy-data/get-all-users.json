@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "_id": "jslfjsljfdslfjdslfdslfjsldfslfjds",
+      "firstName": "Jamie",
+      "surname": "Coe",
+      "email": "jamie@feelit.com"
+    },
+    {
+      "_id": "alsdrjfksdlsfsdkfhdsfdskdfdssdfsd",
+      "firstName": "Karem",
+      "surname": "Omari",
+      "email": "karem@feelit.com"
+    },
+    {
+      "_id": "lljdosyadkdfhsjskfkasksdfdjdljdfdlj",
+      "firstName": "Kira",
+      "surname": "Ablamunits",
+      "email": "kira@feelit.com"
+    }
+  ]
+}
