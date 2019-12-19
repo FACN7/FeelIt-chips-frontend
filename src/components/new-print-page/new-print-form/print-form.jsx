@@ -36,21 +36,15 @@ const PrintForm = () => {
 
   return (
     <React.Fragment>
-      {/* <div className="print-form-container"> */}
-      <DropDownList
-        selectedItem={info["electrodeType"]}
-        selectItem={handleChange("electrodeType")}
-        items={electrodeTypes}
-      />
-      <DropDownList selectItem={handleChange("printer")} items={printers} />
-      <DropDownList selectItem={handleChange("inkType")} items={inkTypes} />
-      <DropDownList
-        selectItem={handleChange("concentration")}
-        items={concentrations}
-      />
-      <p>electrodeBatchDate: {info.electrodeBatchDate}</p>
-      {/* </div> */}
-      <div className="buttonContainer">
+      <div className="print-form-container">
+
+        <div className="label"><label>Electrode Type</label><DropDownList selectItem={handleChange("electrodeType")} items={electrodeTypes} /></div>
+        <div className="label"><label>Printer       </label><DropDownList selectItem={handleChange("printer")} items={printers} /></div>
+        <div className="label"><label>Ink Type      </label><DropDownList selectItem={handleChange("inkType")} items={inkTypes} /></div>
+        <div className="label"><label>Concentration </label><DropDownList selectItem={handleChange("concentration")} items={concentrations} /></div>
+        <div className="label"><label>Batch Date :  </label> {info.electrodeBatchDate}</div>
+      </div>
+      <div className="navigationContainer">
         <button
           onClick={() => {
             setInfo(null);

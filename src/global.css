@@ -1,0 +1,40 @@
+.navigationContainer {
+  position: absolute;
+  bottom: 0.1rem;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.navigationContainer button {
+  width: 100%;
+  margin: 1rem;
+  height: 4rem;
+  border: 0.2em solid rgba(155, 109, 109, 0);
+  border-radius: 1rem;
+  font-size: 2rem;
+}
+
+
+.print-form-container{
+  font-size: 2rem;
+  display: flex;
+width: 90%;
+  height: 80%;
+  flex-direction: column;
+  justify-content: space-around;
+  
+}
+.Container{
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+}
+
+.label{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}

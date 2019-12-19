@@ -48,7 +48,8 @@ const NewPrintPage2 = () => {
     <tableContext.Provider value={{ table, setTable }}>
       <React.Fragment>
         <Table Type="res" sensorsProbsNum={2} editable={true}></Table>
-        <div className="buttonContainer">
+        <div className="navigationContainer">
+       
           <button
             onClick={() => {
               history.push("/new-print");
