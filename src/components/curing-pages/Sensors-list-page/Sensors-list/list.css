@@ -22,12 +22,11 @@
   background-color: rgb(220, 220, 220);
   border: 2px solid gray;
   border-radius: 10px;
-  width: 70%;
+  width: 80%;
 }
 .list-item .data-container div {
   display: flex;
   flex-direction: column;
-  width: 80%;
 }
 
 .buttonContainer button {
