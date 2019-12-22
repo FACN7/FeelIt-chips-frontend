@@ -9,8 +9,7 @@ export default function Header() {
       <nav id="navbar">
         <div className="nav-items">
           <Clock className="Clock" ticking={true} format={"L HH:mm"} />
-          <div className="userName">
-          </div>
+          <div className="userName"></div>
         </div>
       </nav>
     </React.Fragment>
