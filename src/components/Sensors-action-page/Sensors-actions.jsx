@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import PrinterIcon from "../../Icons/printer.svg";
-import StorgeIcon from "../../Icons/database.svg";
+import StorageIcon from "../../Icons/database.svg";
 
 import "./Sensors-actions.css";
 export default function SensorsActionPage() {
@@ -27,8 +27,8 @@ export default function SensorsActionPage() {
                 history.push("/Sensors");
               }}
             >
-              <img src={StorgeIcon} alt="storage" />
-              <span>Storge</span>
+              <img src={StorageIcon} alt="storage" />
+              <span>Storage</span>
             </button>
           </div>
         </div>

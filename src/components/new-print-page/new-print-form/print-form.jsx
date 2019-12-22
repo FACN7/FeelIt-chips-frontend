@@ -42,7 +42,7 @@ const PrintForm = () => {
         <div className="label"><label>Printer       </label><DropDownList selectItem={handleChange("printer")} items={printers} /></div>
         <div className="label"><label>Ink Type      </label><DropDownList selectItem={handleChange("inkType")} items={inkTypes} /></div>
         <div className="label"><label>Concentration </label><DropDownList selectItem={handleChange("concentration")} items={concentrations} /></div>
-        <div className="label"><label>Batch Date :  </label> {info.electrodeBatchDate}</div>
+        <div className="label"><label>Batch Date :  </label> <div className="selectContainer">{info.electrodeBatchDate}</div></div>
       </div>
       <div className="navigationContainer">
         <button
