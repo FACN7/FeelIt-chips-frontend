@@ -8,6 +8,7 @@
   }
   
   #navbar .nav-items {
+    font-size: 2rem;
     display: flex;
     justify-content: space-between;
     color: white;
