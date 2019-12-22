@@ -66,8 +66,6 @@ function List({ Curing = true }) {
             >
               cure
             </button>
-            <button onClick={e => {}}>coat</button>
-            <button onClick={e => {}}>Test</button>
           </div>
         </div>
       ))}

@@ -40,7 +40,6 @@
   margin-right: auto;
 }
 .inputContainer {
-  border: 2px solid gray;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -56,8 +55,7 @@
   height: 25px;
 }
 .printer {
-  width: 45px;
-  height: 45px;
+  height: 4rem;
 }
 .loupe {
   height: 20px;
