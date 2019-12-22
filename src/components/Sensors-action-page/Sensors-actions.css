@@ -9,7 +9,6 @@
   display: flex;
   flex-flow: column;
   align-items: center;
-  margin: 100px;
 }
 .buttons-container img {
   width: 45px;
@@ -18,6 +17,7 @@
 
 .buttons-container button {
   display: flex;
+  font-size: 1.5rem;
   width: 200px;
   height: 100px;
   align-items: stretch;
@@ -25,6 +25,6 @@
   margin: 10px;
 }
 
-.buttons-container button span {
+/* .buttons-container button span {
   font-size: 1.5rem;
-}
+} */

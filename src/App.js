@@ -5,7 +5,7 @@ import { Route, Switch } from "react-router-dom";
 import PrintPage from "./components/new-print-page/new-print-page";
 import PrintPage2 from "./components/new-print-page/new-print-page-2";
 import { NewPrintInfoProvider } from "./components/new-print-page/printContext";
-
+import EditDropDownListsPage from "./components/edit-drop-down-lists/edit-drop-down-lists-page"
 import SensorsAction from "./components/Sensors-action-page/Sensors-actions";
 import Header from "./components/general/header";
 import SensorsPageList from "./components/curing-pages/Sensors-list-page/Sensors-list-page";
@@ -22,6 +22,7 @@ function App() {
         <NewPrintInfoProvider>
           <Route path="/new-print" component={PrintPage} />
           <Route path="/new-print-page-2" component={PrintPage2} />
+        <Route path="/edit-drop-down-lists-page" component={EditDropDownListsPage} />
         </NewPrintInfoProvider>
       </Switch>
     </React.Fragment>
