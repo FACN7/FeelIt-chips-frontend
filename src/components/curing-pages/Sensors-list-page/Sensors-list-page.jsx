@@ -23,8 +23,7 @@ export default function ListPage() {
         <div className="listContainer">
           <div className="header">
             <div className="inputContainer">
-              <input type="text" />
-              <img className="loupe" src={Loupe} alt="printer" />
+              
             </div>
             <img
               className="printer"
