@@ -27,11 +27,11 @@ function App() {
         <NewPrintInfoProvider>
           <ProtectedRoute path="/new-print" component={PrintPage} />
           <ProtectedRoute path="/new-print-page-2" component={PrintPage2} />
-          <ProtectedRoute
+          <ProtectedRoute adminLevel={true}
             path="/edit-drop-down-lists-page"
             component={EditDropDownListsPage}
           />
-          <ProtectedRoute
+          <ProtectedRoute adminLevel={true}
             path="/edit-drop-down-lists-page-2"
             component={EditDropDownListsPage2}
           />

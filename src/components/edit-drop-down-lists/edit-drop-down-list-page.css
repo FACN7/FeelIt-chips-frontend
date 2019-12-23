@@ -1,3 +1,30 @@
 .drop-down-entry{
-font-size: 2rem;
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem;
+    width: 80%;
+
+
+}
+
+.something{
+    font-size: 2rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.add-bar {
+  display: flex;
+  justify-content: space-around;
+  padding: 2rem;
+  width: 80%;
+}
+.add-bar-input {
+  width: 80%;
+}
+.add-bar button ,.drop-down-entry button{
+  font-size: 2rem;
 }

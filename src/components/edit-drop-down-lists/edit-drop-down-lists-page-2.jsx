@@ -6,10 +6,10 @@ import "./edit-drop-down-list-page.css";
 
 const EditDropDownListsPage2 = () => {
   const filterOptions = (value, listToDeleteFrom) => {
-    if (listToDeleteFrom == null) return;
+    if (listToDeleteFrom === null) return;
     const updatedOptions = { dropdown: listToDeleteFrom, values: [] };
     ddlOptions.values.map(item => {
-      if (item.value != value) {
+      if (item.value !== value) {
         updatedOptions.values.push(item);
       }
     });
@@ -28,12 +28,12 @@ const EditDropDownListsPage2 = () => {
   const makeEntry = ({ value, label }, ddlToEdit) => {
     return (
       <div className="drop-down-entry">
-        <div># {label}</div>
-        <div>
+        <div className="add-bar-input"># {label}</div>
+        <div className="add-bar-button">
           <button
             onClick={() => setDdlOptions(filterOptions(value, ddlToEdit))}
           >
-            delete dis
+            Remove
           </button>
         </div>
       </div>
@@ -42,15 +42,15 @@ const EditDropDownListsPage2 = () => {
   const AddBar = () => {
     const [inputValue, setInputValue] = React.useState("");
     return (
-      <div>
-        <div>
+      <div className="add-bar">
+        <div className="add-bar-input">
           <input
             type="text"
             value={inputValue}
             onChange={event => setInputValue(event.target.value)}
           />
         </div>
-        <div><button onClick={()=>{
+        <div className="add-bar-button"><button onClick={()=>{
           const newOption={}
           newOption.value = inputValue.replace(/\s+/g, '_').toLowerCase();
           newOption.label = inputValue;
@@ -65,7 +65,7 @@ const EditDropDownListsPage2 = () => {
     <React.Fragment>
       <div className="Container">
         <AddBar />
-        <div className="print-form-container">
+        <div className="something">
           {(ddlToEdit &&
             ddlOptions.values.map(item => {
               return makeEntry(item, ddlToEdit);
