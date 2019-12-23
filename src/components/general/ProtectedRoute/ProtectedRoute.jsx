@@ -10,8 +10,8 @@ export default ({ component, path, adminLevel = false }) => {
   if (isPending) return "Loading...";
   if (
     data.isAuthenticated === false ||
-    (adminLevel !== data.admin && adminLevel === true)
-  ) {
+    (adminLevel === true && data.admin === false)
+    ) {
     history.push("/");
     return null;
   }
