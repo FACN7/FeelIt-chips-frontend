@@ -26,11 +26,37 @@ const EditDropDownListsPage = () => {
 
   return (
     <React.Fragment>
-        <div className="actionContainer">
-      {options.map(optionStr => {
-        return <div className="buttons-container"><button>{optionStr}</button></div>;
-      })}
+      <div className="actionContainer">
+        {options.map(optionStr => {
+          return (
+            <div className="buttons-container">
+              <button
+                onClick={() => {
+                  setInfo({ pickedOption: optionStr });
+                  history.push("/edit-drop-down-lists-page-2");
+                }}
+              >
+                {optionStr}
+              </button>
+            </div>
+          );
+        })}
       </div>
+
+      <div className="navigationContainer">
+        <div className="navigationButtonContainer">
+          <button
+            onClick={() => {
+              setInfo(null);
+              history.push("/");
+            }}
+          >
+            BACK
+          </button>
+        </div>
+        <div className="navigationButtonContainer"></div>
+      </div>
+
     </React.Fragment>
   );
 };

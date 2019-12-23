@@ -10,6 +10,7 @@ import SensorsAction from "./components/Sensors-action-page/Sensors-actions";
 import Header from "./components/general/header";
 import SensorsPageList from "./components/curing-pages/Sensors-list-page/Sensors-list-page";
 import CurePage from "./components/curing-pages/Sensors-cure-page/Sensors-cure-page";
+import EditDropDownListsPage2 from "./components/edit-drop-down-lists/edit-drop-down-lists-page-2"
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/new-print" component={PrintPage} />
           <Route path="/new-print-page-2" component={PrintPage2} />
         <Route path="/edit-drop-down-lists-page" component={EditDropDownListsPage} />
+        <Route path="/edit-drop-down-lists-page-2" component={EditDropDownListsPage2} />
         </NewPrintInfoProvider>
       </Switch>
     </React.Fragment>

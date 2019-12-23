@@ -45,6 +45,7 @@ const PrintForm = () => {
         <div className="label"><label>Batch Date :  </label> <div className="selectContainer">{info.electrodeBatchDate}</div></div>
       </div>
       <div className="navigationContainer">
+        <div className="navigationButtonContainer">
         <button
           onClick={() => {
             setInfo(null);
@@ -52,14 +53,15 @@ const PrintForm = () => {
           }}
         >
           BACK
-        </button>
+        </button></div>
+        <div className="navigationButtonContainer">
         <button
           onClick={() => {
             history.push("/new-print-page-2");
           }}
         >
           NEXT
-        </button>
+        </button></div>
       </div>
     </React.Fragment>
   );

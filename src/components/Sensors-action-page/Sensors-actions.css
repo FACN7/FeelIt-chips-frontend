@@ -3,7 +3,6 @@
   flex-flow: column;
   align-items: center;
   margin-top: 100px;
-  margin-bottom: 200px;
 }
 .buttons-container {
   display: flex;

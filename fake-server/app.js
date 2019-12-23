@@ -27,5 +27,8 @@ app.get("/get-sensors/:_id",(req,res)=>{
 app.post("/curing-table",(req,res)=>{
     res.send();
 });
+app.post("/edit-dropdown/",(req,res)=>{
+    res.status(302).set({Location:"http://localhost:3000/"}).end();
+})
 
 app.listen(port,()=>{console.log(`server running on port ${port}`)});
