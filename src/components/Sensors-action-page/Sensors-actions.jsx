@@ -3,7 +3,6 @@ import { useHistory } from "react-router-dom";
 import PrinterIcon from "../../Icons/printer.svg";
 import StorageIcon from "../../Icons/database.svg";
 
-
 import "./Sensors-actions.css";
 export default function SensorsActionPage() {
   const history = useHistory();
@@ -31,6 +30,16 @@ export default function SensorsActionPage() {
             >
               <img src={StorageIcon} alt="storage" />
               <span>Storage</span>
+            </button>
+          </div>
+          <div className="button-container">
+            <button
+              onClick={() => {
+                history.push("/control-panel");
+              }}
+            >
+              <img src={StorageIcon} alt="Control panel" />
+              <span>Control panel</span>
             </button>
           </div>
         </div>
