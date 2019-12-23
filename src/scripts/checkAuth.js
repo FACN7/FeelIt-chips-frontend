@@ -6,5 +6,5 @@ export default async () => {
   });
   if (res.status === 401) return {isAuthenticated:false};
   const data = await res.json();
-  return  data;
+  return data;
 };
