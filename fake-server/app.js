@@ -37,6 +37,10 @@ app.post("/delete-user", (req, res) => {
   res.send();
 });
 
+app.post("/invite-user", (req, res) => {
+  res.send();
+});
+
 app.get("/auth-check", (req, res) => {
   res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
   res.header("Access-Control-Allow-Credentials", "true");
