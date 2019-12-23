@@ -1,5 +1,5 @@
 .navigationContainer {
-  position: absolute;
+  position: fixed;
   bottom: 0.1rem;
   display: flex;
   justify-content: space-between;
@@ -8,11 +8,16 @@
 
 .navigationContainer button {
   width: 100%;
-  margin: 1rem;
-  height: 4rem;
   border: 0.2em solid rgba(155, 109, 109, 0);
   border-radius: 1rem;
   font-size: 2rem;
+}
+
+.navigationButtonContainer{
+  width: 100%;
+  margin: 1rem;
+  height: 4rem;
+
 }
 
 .print-form-container {

@@ -36,6 +36,10 @@ app.get("/auth-check", (req, res) => {
   req.cookies.jwt ? res.json(checkAuth) : res.sendStatus(401);
 });
 
+app.post("/edit-dropdown/", (req, res) => {
+  res.status(302).end();
+});
+
 app.listen(port, () => {
   console.log(`server running on port ${port}`);
 });
