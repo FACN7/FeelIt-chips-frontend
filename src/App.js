@@ -10,6 +10,7 @@ import SensorsAction from "./components/Sensors-action-page/Sensors-actions";
 import Header from "./components/general/header";
 import SensorsPageList from "./components/curing-pages/Sensors-list-page/Sensors-list-page";
 import CurePage from "./components/curing-pages/Sensors-cure-page/Sensors-cure-page";
+import ProtectedRoute from "./components/general/ProtectedRoute/ProtectedRoute";
 
 function App() {
   return (
@@ -17,11 +18,14 @@ function App() {
       <Header />
       <Switch>
         <Route exact path="/" component={SensorsAction} />
-        <Route path="/Sensors" component={SensorsPageList} />
-        <Route path="/cure-sensor/:serialNumber" component={CurePage} />
+        <ProtectedRoute path="/Sensors" component={SensorsPageList} />
+        <ProtectedRoute
+          path="/cure-sensor/:serialNumber"
+          component={CurePage}
+        />
         <NewPrintInfoProvider>
-          <Route path="/new-print" component={PrintPage} />
-          <Route path="/new-print-page-2" component={PrintPage2} />
+          <ProtectedRoute path="/new-print" component={PrintPage} />
+          <ProtectedRoute path="/new-print-page-2" component={PrintPage2} />
         </NewPrintInfoProvider>
       </Switch>
     </React.Fragment>

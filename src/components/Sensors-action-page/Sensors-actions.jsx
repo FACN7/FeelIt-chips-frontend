@@ -3,9 +3,11 @@ import { useHistory } from "react-router-dom";
 import PrinterIcon from "../../Icons/printer.svg";
 import StorageIcon from "../../Icons/database.svg";
 
+
 import "./Sensors-actions.css";
 export default function SensorsActionPage() {
   const history = useHistory();
+
   return (
     <React.Fragment>
       <div className="actionContainer">
