@@ -3,19 +3,18 @@
   flex-flow: column;
   align-items: center;
   margin-top: 100px;
-  margin-bottom: 200px;
 }
 .buttons-container {
   display: flex;
   flex-flow: column;
   align-items: center;
-  margin: 100px;
 }
 .buttons-container img {
   width: 10rem;
 }
 
 .buttons-container button {
+  font-size: 4rem;
   display: flex;
   width: 35rem;
   height: 12rem;  
