@@ -8,6 +8,9 @@ export default ({ component, path }) => {
   const { data, isPending } = useAsync({ promiseFn: checkAuth });
 
   if (isPending) return "Loading...";
-  if (data.isAuthenticated === false) history.push("/");
+  if (data.isAuthenticated === false) {
+     history.push("/");
+     return;
+  }
   return <Route path={path} component={component} />;
 };
