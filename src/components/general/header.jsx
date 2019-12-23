@@ -8,13 +8,14 @@ export default function Header() {
   const { data, isPending } = useAsync({ promiseFn: checkAuth });
 
   if (isPending) return "Loading...";
-
   return (
     <React.Fragment>
       <nav id="navbar">
         <div className="nav-items">
           <Clock className="Clock" ticking={true} format={"L HH:mm"} />
-          <div className="userName">{data.isAuthenticated === false ? null :data.employee}</div>
+          <div className="userName">
+            {data && data.isAuthenticated ? data.employee : null}
+          </div>
         </div>
       </nav>
     </React.Fragment>

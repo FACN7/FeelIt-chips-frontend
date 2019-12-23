@@ -10,14 +10,25 @@ import SensorsAction from "./components/Sensors-action-page/Sensors-actions";
 import Header from "./components/general/header";
 import SensorsPageList from "./components/curing-pages/Sensors-list-page/Sensors-list-page";
 import CurePage from "./components/curing-pages/Sensors-cure-page/Sensors-cure-page";
+import ControlPanel from "./components/control-panel-pages/control-panel";
+import Employees from "./components/control-panel-pages/employees/employees";
 import ProtectedRoute from "./components/general/ProtectedRoute/ProtectedRoute";
-
 function App() {
   return (
     <React.Fragment>
       <Header />
       <Switch>
         <Route exact path="/" component={SensorsAction} />
+        <ProtectedRoute
+          path="/control-panel"
+          component={ControlPanel}
+          adminLevel={true}
+        />
+        <ProtectedRoute
+          path="/employees"
+          component={Employees}
+          adminLevel={true}
+        />
         <ProtectedRoute path="/Sensors" component={SensorsPageList} />
         <ProtectedRoute
           path="/cure-sensor/:serialNumber"
