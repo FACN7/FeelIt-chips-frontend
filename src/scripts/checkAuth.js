@@ -4,6 +4,7 @@ export default async () => {
   const res = await fetch(`${endpointUrl}/auth-check`, {
     credentials: "include"
   });
-  console.log(res.status);
-  return res.status !== 401;
+  if (res.status === 401) return {isAuthenticated:false};
+  const data = await res.json();
+  return  data;
 };
