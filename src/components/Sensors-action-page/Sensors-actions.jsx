@@ -40,8 +40,8 @@ export default function SensorsActionPage() {
                 <span>Storage</span>
               </div>
             </button>
-          </div>
-          {data.admin ? (
+          </div>  
+          {data&&data.admin ? (
             <div className="button-container">
               <button
                 onClick={() => {

@@ -3,9 +3,8 @@ import "./employees-list.css";
 import endpointUrl from "../../../../config";
 
 const handleDelete = _id => {
-  fetch(`${endpointUrl}/delete-user`, {
-    method: "POST",
-    body: JSON.stringify({ _id }),
+  fetch(`${endpointUrl}/delete-user/${_id}`, {
+    method: "DELETE",
     headers: {
       "Content-Type": "application/json"
     }
@@ -32,13 +31,13 @@ export default () => {
             <span>Email: {user.email}</span>
           </div>
           <div className="buttonContainer">
-          <button
-            onClick={e => {
-              handleDelete(user._id);
-            }}
-          >
-            remove
-          </button>
+            <button
+              onClick={e => {
+                handleDelete(user._id);
+              }}
+            >
+              remove
+            </button>
           </div>
         </div>
       ))}

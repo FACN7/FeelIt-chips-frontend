@@ -33,7 +33,7 @@ app.get("/get-sensors/:_id", (req, res) => {
 app.post("/curing-table", (req, res) => {
   res.send();
 });
-app.post("/delete-user", (req, res) => {
+app.delete("/delete-user/:_id", (req, res) => {
   res.send();
 });
 
