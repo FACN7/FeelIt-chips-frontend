@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { InfoContext } from "../new-print-page/printContext";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import endpointUrl from "../../config";
 import "./edit-drop-down-list-page.css";
 
@@ -19,7 +19,10 @@ const EditDropDownListsPage2 = () => {
   const history = useHistory();
   const { info, setInfo } = useContext(InfoContext);
   const ddlToEdit = info.pickedOption || null;
-  const [ddlOptions, setDdlOptions] = React.useState(ddlToEdit?{ dropdown: ddlToEdit, values: [...info.options[ddlToEdit]] }:{}
+  const [ddlOptions, setDdlOptions] = React.useState(
+    ddlToEdit
+      ? { dropdown: ddlToEdit, values: [...info.options[ddlToEdit]] }
+      : {}
   );
 
   const makeEntry = ({ value, label }, ddlToEdit) => {
@@ -36,10 +39,32 @@ const EditDropDownListsPage2 = () => {
       </div>
     );
   };
-
+  const AddBar = () => {
+    const [inputValue, setInputValue] = React.useState("");
+    return (
+      <div>
+        <div>
+          <input
+            type="text"
+            value={inputValue}
+            onChange={event => setInputValue(event.target.value)}
+          />
+        </div>
+        <div><button onClick={()=>{
+          const newOption={}
+          newOption.value = inputValue.replace(/\s+/g, '_').toLowerCase();
+          newOption.label = inputValue;
+          let updatedOptions=JSON.parse(JSON.stringify(ddlOptions));
+          updatedOptions.values.push(newOption)
+          setDdlOptions(updatedOptions)}}>ADD</button></div>
+      </div>
+    );
+  }
+  
   return (
     <React.Fragment>
       <div className="Container">
+        <AddBar />
         <div className="print-form-container">
           {(ddlToEdit &&
             ddlOptions.values.map(item => {
@@ -55,27 +80,28 @@ const EditDropDownListsPage2 = () => {
           </button>
         </div>
         <div className="navigationButtonContainer">
-          {ddlToEdit &&<button
-            onClick={() => {
-              fetch(`${endpointUrl}/edit-dropdown`, {
-                method: "POST",
-                body: JSON.stringify(ddlOptions),
-                headers: {
-                  "Content-Type": "application/json"
-                }
-              })
-                .then(res => {
-                  console.log(res.status);
+          {ddlToEdit && (
+            <button
+              onClick={() => {
+                fetch(`${endpointUrl}/edit-dropdown`, {
+                  method: "POST",
+                  body: JSON.stringify(ddlOptions),
+                  headers: {
+                    "Content-Type": "application/json"
+                  }
                 })
-                .then(() => history.push("/edit-drop-down-lists-page"))
-                .catch(err => console.log(err)); //TODO: do something abou this, logging is not enough
-            }}
-          >
-            DONE
-          </button>}
+                  .then(() => history.push("/edit-drop-down-lists-page"))
+                  .catch(err => console.log(err));
+              }}
+            >
+              DONE
+            </button>
+          )}
         </div>
       </div>
     </React.Fragment>
   );
+
 };
+
 export default EditDropDownListsPage2;
