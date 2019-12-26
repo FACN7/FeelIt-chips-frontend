@@ -15,12 +15,16 @@ import ControlPanel from "./components/control-panel-pages/control-panel";
 import Employees from "./components/control-panel-pages/employees/employees";
 import NewEmployee from "./components/control-panel-pages/employees/new-employee/new-employee"
 import ProtectedRoute from "./components/general/ProtectedRoute/ProtectedRoute";
+import SignInForm from "./components/sign-in/sign-in-form";
+
 function App() {
   return (
     <React.Fragment>
       <Header />
       <Switch>
+        <Route exact path="/sign-in" component={SignInForm} />
         <Route exact path="/" component={SensorsAction} />
+
         <ProtectedRoute
           path="/control-panel"
           component={ControlPanel}
@@ -41,14 +45,17 @@ function App() {
           path="/cure-sensor/:serialNumber"
           component={CurePage}
         />
+
         <NewPrintInfoProvider>
           <ProtectedRoute path="/new-print" component={PrintPage} />
           <ProtectedRoute path="/new-print-page-2" component={PrintPage2} />
-          <ProtectedRoute adminLevel={true}
+          <ProtectedRoute
+            adminLevel={true}
             path="/edit-drop-down-lists-page"
             component={EditDropDownListsPage}
           />
-          <ProtectedRoute adminLevel={true}
+          <ProtectedRoute
+            adminLevel={true}
             path="/edit-drop-down-lists-page-2"
             component={EditDropDownListsPage2}
           />
