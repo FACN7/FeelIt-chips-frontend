@@ -13,14 +13,16 @@ import CurePage from "./components/curing-pages/Sensors-cure-page/Sensors-cure-p
 import EditDropDownListsPage2 from "./components/edit-drop-down-lists/edit-drop-down-lists-page-2";
 import ControlPanel from "./components/control-panel-pages/control-panel";
 import Employees from "./components/control-panel-pages/employees/employees";
-import NewEmployee from "./components/control-panel-pages/employees/new-employee/new-employee"
+import NewEmployee from "./components/control-panel-pages/employees/new-employee/new-employee";
 import ProtectedRoute from "./components/general/ProtectedRoute/ProtectedRoute";
+import SignUp from "./components/sign-up/sign-up";
 function App() {
   return (
     <React.Fragment>
       <Header />
       <Switch>
         <Route exact path="/" component={SensorsAction} />
+        <Route path="/sign-up/:token" component={SignUp} />
         <ProtectedRoute
           path="/control-panel"
           component={ControlPanel}
@@ -31,7 +33,7 @@ function App() {
           component={Employees}
           adminLevel={true}
         />
-         <ProtectedRoute
+        <ProtectedRoute
           path="/new-employee"
           component={NewEmployee}
           adminLevel={true}
@@ -44,11 +46,13 @@ function App() {
         <NewPrintInfoProvider>
           <ProtectedRoute path="/new-print" component={PrintPage} />
           <ProtectedRoute path="/new-print-page-2" component={PrintPage2} />
-          <ProtectedRoute adminLevel={true}
+          <ProtectedRoute
+            adminLevel={true}
             path="/edit-drop-down-lists-page"
             component={EditDropDownListsPage}
           />
-          <ProtectedRoute adminLevel={true}
+          <ProtectedRoute
+            adminLevel={true}
             path="/edit-drop-down-lists-page-2"
             component={EditDropDownListsPage2}
           />
