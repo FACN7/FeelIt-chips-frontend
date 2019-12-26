@@ -11,7 +11,12 @@ const checkAuth = require("./dummy-data/auth-check-successful.json");
 const getAllUsers = require("./dummy-data/get-all-users.json");
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: "http://localhost:3000",
+  optionsSuccessStatus: 200,
+  credentials: true
+}));
+
 app.use(bodyParser.json());
 app.use(cookieParser());
 
@@ -42,8 +47,8 @@ app.post("/invite-user", (req, res) => {
 });
 
 app.get("/auth-check", (req, res) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
-  res.header("Access-Control-Allow-Credentials", "true");
+  // res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
+  // res.header("Access-Control-Allow-Credentials", "true");
   req.cookies.jwt ? res.json(checkAuth) : res.sendStatus(401);
 });
 
@@ -54,10 +59,10 @@ app.post("/edit-dropdown/", (req, res) => {
 app.post("/login", (req, res) => {
   req.cookies.jwt = "karem";
   console.log("hello karem");
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000/"); // update to match the domain you will make the request from
-  res.header("Access-Control-Allow-Credentials", "true");
-  res.header("Access-Control-Allow-Methods"," GET, POST");
-  res.header("Access-Control-Allow-Headers"," Content-Type, *");
+  // res.header("Access-Control-Allow-Origin", "http://localhost:3000/"); // update to match the domain you will make the request from
+  // res.header("Access-Control-Allow-Credentials", "true");
+  // res.header("Access-Control-Allow-Methods"," GET, POST");
+  // res.header("Access-Control-Allow-Headers"," Content-Type, *");
   // const user = req.body;
   // console.log(user);
   res.cookie(
@@ -67,6 +72,8 @@ app.post("/login", (req, res) => {
       admin: true
     })
   );
+
+  res.set('Location', 'http://localhost:3000/'); // this doesn't work
   res.sendStatus(302);
 });
 
