@@ -47,6 +47,13 @@ app.get("/auth-check", (req, res) => {
   req.cookies.jwt ? res.json(checkAuth) : res.sendStatus(401);
 });
 
+app.get("/signout", (req, res) => {
+  res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Credentials", "true");
+  res.clearCookie("jwt");
+  res.sendStatus(302);
+});
+
 app.post("/edit-dropdown/", (req, res) => {
   res.status(302).end();
 });
