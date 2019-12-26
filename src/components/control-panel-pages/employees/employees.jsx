@@ -6,28 +6,26 @@ export default () => {
   const history = useHistory();
 
   return (
-    <React.Fragment>
-      <div id="employees">
+    <div id="employees">
+      <button
+        id="newEmployee"
+        onClick={e => {
+          history.push("/new-employee");
+        }}
+      >
+        new employee
+      </button>
+      <div className="listContainer">
+        <List></List>
         <button
-          id="newEmployee"
+          id="empback"
           onClick={e => {
-            history.push("/new-employee");
+            history.push("/control-panel");
           }}
         >
-          new employee
+          BACK
         </button>
-        <div className="listContainer">
-          <List></List>
-          <button
-            id="empback"
-            onClick={e => {
-              history.push("/control-panel");
-            }}
-          >
-            BACK
-          </button>
-        </div>
       </div>
-    </React.Fragment>
+    </div>
   );
 };
