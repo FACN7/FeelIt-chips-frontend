@@ -10,7 +10,13 @@ const getSensorsById = require("./dummy-data/get-sensors-by-id.json");
 const checkAuth = require("./dummy-data/auth-check-successful.json");
 const app = express();
 
-app.use(cors());
+var corsOptions = {
+  origin: 'http://localhost:3000',
+  credentials: true,
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
@@ -31,8 +37,8 @@ app.post("/curing-table", (req, res) => {
 });
 
 app.get("/auth-check", (req, res) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
-  res.header("Access-Control-Allow-Credentials", "true");
+  // res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
+  // res.header("Access-Control-Allow-Credentials", "true");
   req.cookies.jwt ? res.json(checkAuth) : res.sendStatus(401);
 });
 
@@ -41,16 +47,8 @@ app.post("/edit-dropdown/", (req, res) => {
 });
 
 app.post("/login", (req, res) => {
-  req.cookies.jwt = "karem";
-  console.log("hello karem");
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000/"); // update to match the domain you will make the request from
-  res.header("Access-Control-Allow-Credentials", "true");
-  res.header("Access-Control-Allow-Methods"," GET, POST");
-  res.header("Access-Control-Allow-Headers"," Content-Type, *");
-  // const user = req.body;
-  // console.log(user);
   res.cookie(
-    "jwt",
+    "login",
     JSON.stringify({
       employee: "Jamie Coe",
       admin: true

@@ -19,14 +19,8 @@ const SignInForm = () => {
         "Content-Type": "application/json"
       }
     })
-      .then(contents => console.log("res", contents))
-      .catch(() =>
-        console.log(
-          "Can’t access " +
-            `${endpointUrl}/login` +
-            " response. Blocked by browser?"
-        )
-      );
+      .then(() => history.push("/"))
+      .catch(err => console.log(err));
   };
 
   const handleChange = ({ currentTarget: input }) => {
@@ -58,9 +52,7 @@ const SignInForm = () => {
           />
 
           <div className="buttonContainer">
-            <button onClick={handleSubmit} type="submit">
-              Create
-            </button>
+            <button onClick={handleSubmit}>Create</button>
           </div>
         </div>
       </div>
