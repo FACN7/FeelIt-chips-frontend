@@ -8,7 +8,11 @@ import endpointUrl from "../../config";
 const handleSignOut = () => {
   fetch(`${endpointUrl}/signout`, {
     credentials: "include"
-  }).then(res => (res.status === 302 ? (window.location = "/") : null));
+  }).then(res => {
+    if (res.status === 302) {
+      window.location = "/";
+    }
+  });
 };
 export default function Header() {
   const { data, isPending } = useAsync({ promiseFn: checkAuth });
