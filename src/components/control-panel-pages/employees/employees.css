@@ -1,7 +1,10 @@
 #newEmployee {
   font-size: 1.7rem;
 }
-
+#employees {
+  display: flex;
+  flex-direction: column;
+}
 #employees .listContainer {
   margin-bottom: 0px;
 }
