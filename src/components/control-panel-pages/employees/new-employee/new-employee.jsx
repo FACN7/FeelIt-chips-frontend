@@ -25,7 +25,7 @@ export default () => {
   return (
     <React.Fragment>
       <div className="form-container">
-        <h1>sign up page</h1>
+        <h1>Invite Page</h1>
 
         <form onSubmit={handleSubmit} className="reg-form">
           <input
@@ -47,7 +47,7 @@ export default () => {
             required
           />
 
-          <div className="buttonContainer">
+          <div className="createbtnContainer">
             <button type="submit">Create</button>
           </div>
         </form>
