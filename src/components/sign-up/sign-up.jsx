@@ -21,7 +21,11 @@ export default () => {
       headers: {
         "Content-Type": "application/json"
       }
-    }).then(res => (res.status === 302 ? (window.location = "/") : null));
+    }).then(res => {
+      if (res.status === 302) {
+        window.location = "/";
+      }
+    });
   };
 
   const handleChange = ({ currentTarget: input }) => {
