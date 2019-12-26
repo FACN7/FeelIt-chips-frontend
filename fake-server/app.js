@@ -50,7 +50,7 @@ app.post("/login", (req, res) => {
   // const user = req.body;
   // console.log(user);
   res.cookie(
-    "jwnt",
+    "jwt",
     JSON.stringify({
       employee: "Jamie Coe",
       admin: true
