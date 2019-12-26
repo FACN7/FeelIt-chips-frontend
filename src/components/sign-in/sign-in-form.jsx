@@ -52,7 +52,7 @@ const SignInForm = () => {
           />
 
           <div className="buttonContainer">
-            <button onClick={handleSubmit}>Create</button>
+            <button onClick={handleSubmit}>Sign In</button>
           </div>
         </div>
       </div>
