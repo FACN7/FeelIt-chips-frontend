@@ -1,16 +1,20 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import "./sign-up.css";
 import endpointUrl from "../../config";
 export default () => {
   const history = useHistory();
+  let { token } = useParams();
 
   const [user, setUser] = React.useState({
-    user: "",
-    email: ""
+    firstName: "",
+    surname: "",
+    email: "",
+    password: "",
+    confirmPassword: ""
   });
   const handleSubmit = e => {
-    fetch(`${endpointUrl}/invite-user`, {
+    fetch(`${endpointUrl}/sign-up/${token}`, {
       method: "POST",
       body: JSON.stringify({ user }),
       headers: {
@@ -23,43 +27,66 @@ export default () => {
     setUser({ ...user, [input.name]: input.value });
   };
   return (
-    <React.Fragment>
-      <div className="form-container">
-        <h1>sign up page</h1>
+    <div className="sign-up-form-container">
+      <h1>sign up page</h1>
 
-        <form onSubmit={handleSubmit} className="reg-form">
-          <input
-            type="text"
-            placeholder="Enter username..."
-            value={user.user}
-            name="user"
-            onChange={handleChange}
-            required
-            minLength="3"
-          />
+      <form onSubmit={handleSubmit} className="sign-up-form">
+        <input
+          type="text"
+          placeholder="Enter firstName..."
+          value={user.firstName}
+          name="firstName"
+          onChange={handleChange}
+          required
+          minLength="3"
+        />
+        <input
+          type="text"
+          placeholder="Enter surname..."
+          value={user.surname}
+          name="surname"
+          onChange={handleChange}
+          required
+          minLength="3"
+        />
 
-          <input
-            type="email"
-            placeholder="Enter email..."
-            value={user.email}
-            name="email"
-            onChange={handleChange}
-            required
-          />
+        <input
+          type="email"
+          placeholder="Enter email..."
+          value={user.email}
+          name="email"
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="password"
+          placeholder="Enter password..."
+          value={user.password}
+          name="password"
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="password"
+          placeholder="confirm password..."
+          value={user.confirmPassword}
+          name="confirmPassword"
+          onChange={handleChange}
+          required
+        />
 
-          <div className="buttonContainer">
-            <button type="submit">Create</button>
-          </div>
-        </form>
-        <button
-          id="back"
-          onClick={e => {
-            history.push("/employees");
-          }}
-        >
-          BACK
-        </button>
-      </div>
-    </React.Fragment>
+        <div className="createbtnContainer">
+          <button type="submit">Create</button>
+        </div>
+      </form>
+      <button
+        id="empback"
+        onClick={e => {
+          history.push("/employees");
+        }}
+      >
+        BACK
+      </button>
+    </div>
   );
 };

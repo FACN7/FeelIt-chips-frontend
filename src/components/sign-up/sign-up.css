@@ -1,0 +1,25 @@
+.sign-up-form-container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.sign-up-form {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  margin: 100px;
+}
+.sign-up-form input {
+  margin-bottom: 20px;
+  width: 100%;
+  height: 2rem;
+}
+.sign-up-form button {
+  margin-top: 20px;
+}
+    
+h1 {
+  font-size: 5rem;
+}
