@@ -25,20 +25,21 @@ export default () => {
       {list.map(user => (
         <div key={user._id} className="list-item">
           <div className="data-container">
-            <span>
-              Name :{user.firstName} {user.surName}
+            <span className="Name">
+              Name :{user.firstName} {user.surname}
             </span>
-            <span>Email: {user.email}</span>
+            <span className="Email">Email: {user.email}</span>
           </div>
-          <div className="buttonContainer">
-            <button
-              onClick={e => {
-                handleDelete(user._id);
-              }}
-            >
-              remove
-            </button>
-          </div>
+          {/* <div className="removeBtnContainer"> */}
+          <button
+            className="removeBtn"
+            onClick={e => {
+              handleDelete(user._id);
+            }}
+          >
+            remove
+          </button>
+          {/* </div> */}
         </div>
       ))}
     </div>
