@@ -8,6 +8,7 @@ const printInputsOptions = require("./dummy-data/print-inputs-options.json");
 const getSensors = require("./dummy-data/get-sensors.json");
 const getSensorsById = require("./dummy-data/get-sensors-by-id.json");
 const checkAuth = require("./dummy-data/auth-check-successful.json");
+const getAllUsers = require("./dummy-data/get-all-users.json");
 const app = express();
 
 var corsOptions = {
@@ -23,6 +24,9 @@ app.use(cookieParser());
 app.get("/print-inputs-options", (req, res) => {
   res.json(printInputsOptions);
 });
+app.get("/get-all-users", (req, res) => {
+  res.json(getAllUsers);
+});
 app.post("/print-resistance-table", (req, res) => {
   res.send();
 });
@@ -33,6 +37,13 @@ app.get("/get-sensors/:_id", (req, res) => {
   res.json(getSensorsById);
 });
 app.post("/curing-table", (req, res) => {
+  res.send();
+});
+app.delete("/delete-user/:_id", (req, res) => {
+  res.send();
+});
+
+app.post("/invite-user", (req, res) => {
   res.send();
 });
 
