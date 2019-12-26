@@ -1,5 +1,5 @@
 # feelit-chips-frontend
-[LIVE SITE LINK HERE](https://hardcore-hamilton-171f24.netlify.com/)
+[LIVE SITE LINK HERE](https://feelit.netlify.com/)
 
 
 ### Credits
