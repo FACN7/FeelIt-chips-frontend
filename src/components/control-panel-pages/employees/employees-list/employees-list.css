@@ -1,0 +1,29 @@
+#newEmployee {
+  margin-top: 10%;
+  width: 40%;
+  height: 40px;
+  display: flex;
+  align-self: flex-end;
+  justify-content: center;
+  margin-right: 30px;
+  border: 0.2em solid rgba(155, 109, 109, 0);
+  border-radius: 1rem;
+  font-size: 20px;
+}
+
+.Name {
+  font-size: 2rem;
+}
+.Email {
+  font-size: 2rem;
+}
+.removeBtn {
+  display: flex;
+  justify-content: center;
+  width: 20%;
+  height: 50px;
+  border: 0.2em solid rgba(155, 109, 109, 0);
+  border-radius: 0.5rem;
+  font-size: 1.8rem;
+  margin-left: 30px;
+}

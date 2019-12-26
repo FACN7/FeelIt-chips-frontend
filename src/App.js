@@ -13,6 +13,7 @@ import CurePage from "./components/curing-pages/Sensors-cure-page/Sensors-cure-p
 import EditDropDownListsPage2 from "./components/edit-drop-down-lists/edit-drop-down-lists-page-2";
 import ControlPanel from "./components/control-panel-pages/control-panel";
 import Employees from "./components/control-panel-pages/employees/employees";
+import NewEmployee from "./components/control-panel-pages/employees/new-employee/new-employee"
 import ProtectedRoute from "./components/general/ProtectedRoute/ProtectedRoute";
 function App() {
   return (
@@ -28,6 +29,11 @@ function App() {
         <ProtectedRoute
           path="/employees"
           component={Employees}
+          adminLevel={true}
+        />
+         <ProtectedRoute
+          path="/new-employee"
+          component={NewEmployee}
           adminLevel={true}
         />
         <ProtectedRoute path="/Sensors" component={SensorsPageList} />
