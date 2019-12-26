@@ -13,44 +13,71 @@ import CurePage from "./components/curing-pages/Sensors-cure-page/Sensors-cure-p
 import EditDropDownListsPage2 from "./components/edit-drop-down-lists/edit-drop-down-lists-page-2";
 import ControlPanel from "./components/control-panel-pages/control-panel";
 import Employees from "./components/control-panel-pages/employees/employees";
-import NewEmployee from "./components/control-panel-pages/employees/new-employee/new-employee"
+import NewEmployee from "./components/control-panel-pages/employees/new-employee/new-employee";
 import ProtectedRoute from "./components/general/ProtectedRoute/ProtectedRoute";
 function App() {
+  const [user, setUser] = React.useState(null);
+
   return (
     <React.Fragment>
-      <Header />
+      <Header user={user} />
       <Switch>
-        <Route exact path="/" component={SensorsAction} />
+        <ProtectedRoute
+          exact
+          path="/"
+          component={props => <SensorsAction {...props} user={user} />}
+          setUser={setUser}
+        />
         <ProtectedRoute
           path="/control-panel"
           component={ControlPanel}
           adminLevel={true}
+          setUser={setUser}
         />
         <ProtectedRoute
           path="/employees"
           component={Employees}
           adminLevel={true}
+          setUser={setUser}
         />
-         <ProtectedRoute
+        <ProtectedRoute
           path="/new-employee"
           component={NewEmployee}
           adminLevel={true}
+          setUser={setUser}
         />
-        <ProtectedRoute path="/Sensors" component={SensorsPageList} />
+        <ProtectedRoute
+          path="/Sensors"
+          component={SensorsPageList}
+          setUser={setUser}
+        />
         <ProtectedRoute
           path="/cure-sensor/:serialNumber"
           component={CurePage}
+          setUser={setUser}
         />
         <NewPrintInfoProvider>
-          <ProtectedRoute path="/new-print" component={PrintPage} />
-          <ProtectedRoute path="/new-print-page-2" component={PrintPage2} />
-          <ProtectedRoute adminLevel={true}
+          <ProtectedRoute
+            path="/new-print"
+            component={PrintPage}
+            setUser={setUser}
+          />
+          <ProtectedRoute
+            path="/new-print-page-2"
+            component={PrintPage2}
+            setUser={setUser}
+          />
+          <ProtectedRoute
+            adminLevel={true}
             path="/edit-drop-down-lists-page"
             component={EditDropDownListsPage}
+            setUser={setUser}
           />
-          <ProtectedRoute adminLevel={true}
+          <ProtectedRoute
+            adminLevel={true}
             path="/edit-drop-down-lists-page-2"
             component={EditDropDownListsPage2}
+            setUser={setUser}
           />
         </NewPrintInfoProvider>
       </Switch>
