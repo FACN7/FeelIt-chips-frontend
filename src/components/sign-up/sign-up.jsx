@@ -1,9 +1,8 @@
 import React from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "./sign-up.css";
 import endpointUrl from "../../config";
 export default () => {
-  const history = useHistory();
   let { token } = useParams();
 
   const [user, setUser] = React.useState({
@@ -14,13 +13,15 @@ export default () => {
     confirmPassword: ""
   });
   const handleSubmit = e => {
+    const sendUserDetails = { ...user };
+    delete sendUserDetails.confirmPassword;
     fetch(`${endpointUrl}/sign-up/${token}`, {
       method: "POST",
-      body: JSON.stringify({ user }),
+      body: JSON.stringify({ user: sendUserDetails }),
       headers: {
         "Content-Type": "application/json"
       }
-    });
+    }).then(res => (res.status === 302 ? (window.location = "/") : null));
   };
 
   const handleChange = ({ currentTarget: input }) => {
@@ -30,7 +31,7 @@ export default () => {
     <div className="sign-up-form-container">
       <h1>sign up page</h1>
 
-      <form onSubmit={handleSubmit} className="sign-up-form">
+      <div className="sign-up-form">
         <input
           type="text"
           placeholder="Enter firstName..."
@@ -76,17 +77,11 @@ export default () => {
         />
 
         <div className="createbtnContainer">
-          <button type="submit">Create</button>
+          <button onClick={handleSubmit} type="submit">
+            Create
+          </button>
         </div>
-      </form>
-      <button
-        id="empback"
-        onClick={e => {
-          history.push("/employees");
-        }}
-      >
-        BACK
-      </button>
+      </div>
     </div>
   );
 };

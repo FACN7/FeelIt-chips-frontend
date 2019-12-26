@@ -22,7 +22,7 @@
   display: flex;
   justify-content: center;
   font-size: 1.8rem;
-  border: 0.2em solid rgba(155, 109, 109, 0);
+  border: 0.2em solid #9b6d6d00;
   border-radius: 0.5rem;
 }
 

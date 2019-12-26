@@ -27,7 +27,7 @@ export default () => {
       <div className="form-container">
         <h1>Invite Page</h1>
 
-        <form onSubmit={handleSubmit} className="reg-form">
+        <div className="reg-form">
           <input
             type="text"
             placeholder="Enter username..."
@@ -48,9 +48,11 @@ export default () => {
           />
 
           <div className="createbtnContainer">
-            <button type="submit">Create</button>
+            <button onClick={handleSubmit} type="submit">
+              Create
+            </button>
           </div>
-        </form>
+        </div>
         <button
           id="back"
           onClick={e => {
