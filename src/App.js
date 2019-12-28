@@ -15,6 +15,7 @@ import ControlPanel from "./components/control-panel-pages/control-panel";
 import Employees from "./components/control-panel-pages/employees/employees";
 import NewEmployee from "./components/control-panel-pages/employees/new-employee/new-employee";
 import ProtectedRoute from "./components/general/ProtectedRoute/ProtectedRoute";
+
 function App() {
   const [user, setUser] = React.useState(null);
 
