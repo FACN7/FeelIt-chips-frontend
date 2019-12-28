@@ -1,12 +1,14 @@
 import React from "react";
 import PrintForm from "./new-print-form/print-form";
-
+import { NewPrintInfoProvider } from "./printContext";
 
 const NewPrintPage = () => {
   return (
-    <div className="Container">
-      <PrintForm />
-    </div>
+    <NewPrintInfoProvider>
+      <div className="Container">
+        <PrintForm />
+      </div>
+    </NewPrintInfoProvider>
   );
 };
 

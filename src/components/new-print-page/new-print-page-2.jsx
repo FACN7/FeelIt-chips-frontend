@@ -15,11 +15,15 @@ const init = {
   a6: {},
   a7: {}
 };
-
 const NewPrintPage2 = () => {
   /*takes resistance and layers table from form, adds the specs from the previous form and makes 
   one object to be sent to the backend in a POST request
   */
+  const { info, setInfo } = useContext(InfoContext);
+  // React.useEffect(() => {
+  //   if(info===undefined)
+  //   console.log("setInfo");
+  // }, []);
   const processData = table => {
     const newTable = { specs: {}, printingLayers: {}, resistance: {} };
     newTable.specs = JSON.parse(JSON.stringify(info));
@@ -30,8 +34,6 @@ const NewPrintPage2 = () => {
 
     return newTable;
   };
-  const { info, setInfo } = useContext(InfoContext);
-
   const reducer = (table, action) => {
     if (action.reset) {
       return JSON.parse(JSON.stringify(init));

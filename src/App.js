@@ -21,48 +21,50 @@ function App() {
   return (
     <React.Fragment>
       <Header user={user} />
-      <Switch>
-        <ProtectedRoute
-          exact
-          path="/"
-          component={props => <SensorsAction {...props} user={user} />}
-          setUser={setUser}
-        />
-        <ProtectedRoute
-          path="/control-panel"
-          component={ControlPanel}
-          adminLevel={true}
-          setUser={setUser}
-        />
-        <ProtectedRoute
-          path="/employees"
-          component={Employees}
-          adminLevel={true}
-          setUser={setUser}
-        />
-        <ProtectedRoute
-          path="/new-employee"
-          component={NewEmployee}
-          adminLevel={true}
-          setUser={setUser}
-        />
-        <ProtectedRoute
-          path="/Sensors"
-          component={SensorsPageList}
-          setUser={setUser}
-        />
-        <ProtectedRoute
-          path="/cure-sensor/:serialNumber"
-          component={CurePage}
-          setUser={setUser}
-        />
-        <NewPrintInfoProvider>
+      <NewPrintInfoProvider>
+        <Switch>
           <ProtectedRoute
+            exact
+            path="/"
+            component={props => <SensorsAction {...props} user={user} />}
+            setUser={setUser}
+          />
+          <ProtectedRoute
+            path="/control-panel"
+            component={ControlPanel}
+            adminLevel={true}
+            setUser={setUser}
+          />
+          <ProtectedRoute
+            path="/employees"
+            component={Employees}
+            adminLevel={true}
+            setUser={setUser}
+          />
+          <ProtectedRoute
+            path="/new-employee"
+            component={NewEmployee}
+            adminLevel={true}
+            setUser={setUser}
+          />
+          <ProtectedRoute
+            path="/Sensors"
+            component={SensorsPageList}
+            setUser={setUser}
+          />
+          <ProtectedRoute
+            path="/cure-sensor/:serialNumber"
+            component={CurePage}
+            setUser={setUser}
+          />
+          <ProtectedRoute
+            exact
             path="/new-print"
             component={PrintPage}
             setUser={setUser}
           />
           <ProtectedRoute
+            exact
             path="/new-print-page-2"
             component={PrintPage2}
             setUser={setUser}
@@ -79,8 +81,8 @@ function App() {
             component={EditDropDownListsPage2}
             setUser={setUser}
           />
-        </NewPrintInfoProvider>
-      </Switch>
+        </Switch>
+      </NewPrintInfoProvider>
     </React.Fragment>
   );
 }
