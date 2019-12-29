@@ -1,23 +1,26 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import "./new-employee.css";
-import endpointUrl from "../../../../config";
-export default () => {
+import endpointUrl from "../../config";
+
+const SignInForm = () => {
   const history = useHistory();
 
   const [user, setUser] = React.useState({
-    user: "",
+    password: "",
     email: ""
   });
   const handleSubmit = e => {
     e.preventDefault();
-    fetch(`${endpointUrl}/invite-user`, {
+    fetch(`${endpointUrl}/login`, {
       method: "POST",
-      body: JSON.stringify({ user }),
+      body: JSON.stringify(user),
+      credentials: "include",
       headers: {
         "Content-Type": "application/json"
       }
-    });
+    })
+      .then(() => history.push("/"))
+      .catch(err => console.log(err));
   };
 
   const handleChange = ({ currentTarget: input }) => {
@@ -26,41 +29,35 @@ export default () => {
   return (
     <React.Fragment>
       <div className="form-container">
-        <h1>Invite Page</h1>
+        <h1>sign in page</h1>
 
         <form onSubmit={handleSubmit} className="reg-form">
           <input
-            type="text"
-            placeholder="Enter username..."
-            value={user.user}
-            name="user"
+            type="email"
+            placeholder="Enter Email..."
+            value={user.email}
+            name="email"
             onChange={handleChange}
             required
             minLength="3"
           />
 
           <input
-            type="email"
-            placeholder="Enter email..."
-            value={user.email}
-            name="email"
+            type="password"
+            placeholder="Enter Password..."
+            value={user.password}
+            name="password"
             onChange={handleChange}
             required
           />
 
-          <div className="createbtnContainer">
-            <input type="submit" value="Create"/>
+          <div className="buttonContainer">
+            <input type="submit"  value="Sign In"/>
           </div>
         </form>
-        <button
-          id="back"
-          onClick={e => {
-            history.push("/employees");
-          }}
-        >
-          BACK
-        </button>
       </div>
     </React.Fragment>
   );
 };
+
+export default SignInForm;

@@ -11,7 +11,13 @@ const checkAuth = require("./dummy-data/auth-check-successful.json");
 const getAllUsers = require("./dummy-data/get-all-users.json");
 const app = express();
 
-app.use(cors());
+const corsOptions = {
+  origin: 'http://localhost:3000',
+  credentials: true,
+  optionsSuccessStatus: 200
+}
+
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
@@ -42,8 +48,6 @@ app.post("/invite-user", (req, res) => {
 });
 
 app.get("/auth-check", (req, res) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
-  res.header("Access-Control-Allow-Credentials", "true");
   req.cookies.jwt ? res.json(checkAuth) : res.sendStatus(401);
 });
 
@@ -56,6 +60,17 @@ app.get("/signout", (req, res) => {
 
 app.post("/edit-dropdown/", (req, res) => {
   res.status(302).end();
+});
+
+app.post("/login", (req, res) => {
+  res.cookie(
+    "login",
+    JSON.stringify({
+      employee: "Jamie Coe",
+      admin: true
+    })
+  );
+  res.sendStatus(302);
 });
 
 app.listen(port, () => {
