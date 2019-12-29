@@ -19,7 +19,7 @@ const SignInForm = () => {
         "Content-Type": "application/json"
       }
     })
-      .then(() => history.push("/"))
+      .then(() => window.location="/")
       .catch(err => console.log(err));
   };
 
