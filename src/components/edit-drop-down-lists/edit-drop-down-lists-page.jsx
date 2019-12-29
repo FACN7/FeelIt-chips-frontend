@@ -18,7 +18,7 @@ const EditDropDownListsPage = () => {
     fetch(`${endpointUrl}/print-inputs-options`)
       .then(res => res.json())
       .then(data => {
-        setOptions(Object.keys(data));
+        setOptions(Object.keys(data).filter(item=>item!="_id"));
         setInfo({ options: data });
       })
       .catch(err => console.log(err));

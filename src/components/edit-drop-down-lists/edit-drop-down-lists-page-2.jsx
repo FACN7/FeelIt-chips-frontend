@@ -85,6 +85,7 @@ const EditDropDownListsPage2 = () => {
               onClick={() => {
                 fetch(`${endpointUrl}/edit-dropdown`, {
                   method: "POST",
+                  credentials: "include",
                   body: JSON.stringify(ddlOptions),
                   headers: {
                     "Content-Type": "application/json"

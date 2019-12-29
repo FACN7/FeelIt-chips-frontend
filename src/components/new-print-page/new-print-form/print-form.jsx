@@ -27,7 +27,7 @@ const PrintForm = () => {
     ) {
       history.push("/new-print-page-2");
     } else {
-      alert("Insufecient Input");
+      alert("Please fill all inputs");
     }
   };
 

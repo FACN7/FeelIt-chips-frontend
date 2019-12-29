@@ -21,7 +21,7 @@ export default () => {
       const sendUserDetails = { ...user };
       delete sendUserDetails.confirmPassword;
       fetch(`${endpointUrl}/sign-up/${token}`, {
-        method: "POST",
+        credentials: "include",
         body: JSON.stringify(sendUserDetails),
         headers: {
           "Content-Type": "application/json"

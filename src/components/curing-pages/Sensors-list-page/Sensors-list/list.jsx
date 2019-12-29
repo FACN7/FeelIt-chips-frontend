@@ -29,7 +29,7 @@ function List({ Curing = true }) {
   React.useEffect(() => {
     fetch(`${endpointUrl}/get-sensors`)
       .then(res => res.json())
-      .then(res => setList(res.sensors.reverse()));
+      .then(data => setList(data.sensors.reverse()));
   }, []);
   React.useEffect(() => {
     if (showMoreById !== -1) {

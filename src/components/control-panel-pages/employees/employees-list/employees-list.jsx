@@ -5,6 +5,7 @@ import endpointUrl from "../../../../config";
 const handleDelete = _id => {
   fetch(`${endpointUrl}/delete-user/${_id}`, {
     method: "DELETE",
+    credentials: "include",
     headers: {
       "Content-Type": "application/json"
     }

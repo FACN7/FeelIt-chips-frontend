@@ -25,6 +25,7 @@ const postCuring = (setTable, table, type, _id) => {
   const postData = { _id, curing: { type, ...table } };
   fetch(`${endpointUrl}/curing-table`, {
     method: "POST",
+    credentials: "include",
     body: JSON.stringify(postData),
     headers: {
       "Content-Type": "application/json"

@@ -13,6 +13,7 @@ export default () => {
     e.preventDefault();
     fetch(`${endpointUrl}/invite-user`, {
       method: "POST",
+      credentials: "include",
       body: JSON.stringify({ user }),
       headers: {
         "Content-Type": "application/json"
