@@ -15,7 +15,6 @@ export default () => {
   const handleSubmit = e => {
     e.preventDefault();
     const { password, confirmPassword } = user;
-    // perform all neccassary validations
     if (password !== confirmPassword) {
       alert("Passwords don't match");
     } else {

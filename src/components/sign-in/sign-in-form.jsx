@@ -27,7 +27,6 @@ const SignInForm = () => {
     setUser({ ...user, [input.name]: input.value });
   };
   return (
-    <React.Fragment>
       <div className="form-container">
         <h1>sign in page</h1>
 
@@ -56,7 +55,6 @@ const SignInForm = () => {
           </div>
         </form>
       </div>
-    </React.Fragment>
   );
 };
 
