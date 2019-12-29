@@ -12,3 +12,18 @@
   justify-content: space-between;
   color: white;
 }
+.auth {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.auth .Clock {
+  padding-right: 20px;
+}
+#signout {
+  background-color: transparent;
+  color: white;
+  font-size: 2rem;
+  border-color: transparent;
+}

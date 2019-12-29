@@ -16,13 +16,17 @@ import Employees from "./components/control-panel-pages/employees/employees";
 import NewEmployee from "./components/control-panel-pages/employees/new-employee/new-employee";
 import ProtectedRoute from "./components/general/ProtectedRoute/ProtectedRoute";
 import SignUp from "./components/sign-up/sign-up";
+import SignInForm from "./components/sign-in/sign-in-form";
+
 function App() {
   return (
     <React.Fragment>
       <Header />
       <Switch>
-        <Route exact path="/" component={SensorsAction} />
-        <Route path="/sign-up/:token" component={SignUp} />
+        <Route exact path="/sign-in" component={SignInForm} />
+        <ProtectedRoute exact path="/" component={SensorsAction} />
+        <ProtectedRoute path="/sign-up/:token" component={SignUp} />
+
         <ProtectedRoute
           path="/control-panel"
           component={ControlPanel}
@@ -43,6 +47,7 @@ function App() {
           path="/cure-sensor/:serialNumber"
           component={CurePage}
         />
+
         <NewPrintInfoProvider>
           <ProtectedRoute path="/new-print" component={PrintPage} />
           <ProtectedRoute path="/new-print-page-2" component={PrintPage2} />
