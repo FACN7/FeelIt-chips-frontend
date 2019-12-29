@@ -10,7 +10,7 @@ const SignInForm = () => {
     email: ""
   });
   const handleSubmit = e => {
-    console.log(JSON.stringify(user));
+    e.preventDefault();
     fetch(`${endpointUrl}/login`, {
       method: "POST",
       body: JSON.stringify(user),
@@ -31,7 +31,7 @@ const SignInForm = () => {
       <div className="form-container">
         <h1>sign in page</h1>
 
-        <div className="reg-form">
+        <form onSubmit={handleSubmit} className="reg-form">
           <input
             type="email"
             placeholder="Enter Email..."
@@ -52,9 +52,9 @@ const SignInForm = () => {
           />
 
           <div className="buttonContainer">
-            <button onClick={handleSubmit}>Sign In</button>
+            <input type="submit"  value="Sign In"/>
           </div>
-        </div>
+        </form>
       </div>
     </React.Fragment>
   );

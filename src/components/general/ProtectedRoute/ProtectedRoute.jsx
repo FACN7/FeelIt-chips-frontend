@@ -13,7 +13,7 @@ export default ({ component, path, adminLevel = false }) => {
     data.isAuthenticated === false ||
     (adminLevel === true && data.admin === false)
   ) {
-    history.push("/");
+    history.push("/sign-in");
     return null;
   }
   return <Route path={path} component={component} />;

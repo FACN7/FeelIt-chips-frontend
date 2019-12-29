@@ -11,7 +11,7 @@ const checkAuth = require("./dummy-data/auth-check-successful.json");
 const getAllUsers = require("./dummy-data/get-all-users.json");
 const app = express();
 
-var corsOptions = {
+const corsOptions = {
   origin: 'http://localhost:3000',
   credentials: true,
   optionsSuccessStatus: 200

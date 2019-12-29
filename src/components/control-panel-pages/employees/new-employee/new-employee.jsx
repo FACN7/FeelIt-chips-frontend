@@ -10,6 +10,7 @@ export default () => {
     email: ""
   });
   const handleSubmit = e => {
+    e.preventDefault();
     fetch(`${endpointUrl}/invite-user`, {
       method: "POST",
       body: JSON.stringify({ user }),
@@ -48,7 +49,7 @@ export default () => {
           />
 
           <div className="createbtnContainer">
-            <button type="submit">Create</button>
+            <input type="submit" value="Create"/>
           </div>
         </form>
         <button
