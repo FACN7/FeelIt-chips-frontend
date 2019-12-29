@@ -15,10 +15,10 @@ const EditDropDownListsPage = () => {
   ]);
 
   React.useEffect(() => {
-    fetch(`${endpointUrl}/print-inputs-options`)
+    fetch(`${endpointUrl}/print-inputs-options`, { credentials: "include" })
       .then(res => res.json())
       .then(data => {
-        setOptions(Object.keys(data));
+        setOptions(Object.keys(data).filter(item => item != "_id"));
         setInfo({ options: data });
       })
       .catch(err => console.log(err));
@@ -56,7 +56,6 @@ const EditDropDownListsPage = () => {
         </div>
         <div className="navigationButtonContainer"></div>
       </div>
-
     </React.Fragment>
   );
 };

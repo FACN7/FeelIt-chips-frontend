@@ -7,6 +7,7 @@ import endpointUrl from "../../../config";
 const PrintForm = () => {
   const history = useHistory();
   const { info, setInfo } = useContext(InfoContext);
+
   const convertToDropDownListItems = arr => {
     return arr.map(({ value, label }) => {
       return { value, text: label };
@@ -17,13 +18,26 @@ const PrintForm = () => {
     setInfo({ [key]: newValue });
   };
 
+  const handleSubmit = () => {
+    if (
+      Object.values(info).reduce(
+        (acc, curr) => (acc = acc && curr != null),
+        true
+      )
+    ) {
+      history.push("/new-print-page-2");
+    } else {
+      alert("Please fill all inputs");
+    }
+  };
+
   const [electrodeTypes, setElectrodeTypes] = React.useState([]);
   const [printers, setPrinters] = React.useState([]);
   const [inkTypes, setInkTypes] = React.useState([]);
   const [concentrations, setConcentrations] = React.useState([]);
 
   React.useEffect(() => {
-    fetch(`${endpointUrl}/print-inputs-options`)
+    fetch(`${endpointUrl}/print-inputs-options`, { credentials: "include" })
       .then(res => res.json())
       .then(data => {
         setPrinters(convertToDropDownListItems(data.printer));
@@ -37,31 +51,47 @@ const PrintForm = () => {
   return (
     <React.Fragment>
       <div className="print-form-container">
-
-        <div className="label"><label>Electrode Type</label><DropDownList selectItem={handleChange("electrodeType")} items={electrodeTypes} /></div>
-        <div className="label"><label>Printer       </label><DropDownList selectItem={handleChange("printer")} items={printers} /></div>
-        <div className="label"><label>Ink Type      </label><DropDownList selectItem={handleChange("inkType")} items={inkTypes} /></div>
-        <div className="label"><label>Concentration </label><DropDownList selectItem={handleChange("concentration")} items={concentrations} /></div>
-        <div className="label"><label>Batch Date :  </label> <div className="selectContainer">{info.electrodeBatchDate}</div></div>
+        <div className="label">
+          <label>Electrode Type</label>
+          <DropDownList
+            selectItem={handleChange("electrodeType")}
+            items={electrodeTypes}
+          />
+        </div>
+        <div className="label">
+          <label>Printer </label>
+          <DropDownList selectItem={handleChange("printer")} items={printers} />
+        </div>
+        <div className="label">
+          <label>Ink Type </label>
+          <DropDownList selectItem={handleChange("inkType")} items={inkTypes} />
+        </div>
+        <div className="label">
+          <label>Concentration </label>
+          <DropDownList
+            selectItem={handleChange("concentration")}
+            items={concentrations}
+          />
+        </div>
+        <div className="label">
+          <label>Batch Date : </label>{" "}
+          <div className="selectContainer">{info.electrodeBatchDate}</div>
+        </div>
       </div>
       <div className="navigationContainer">
         <div className="navigationButtonContainer">
-        <button
-          onClick={() => {
-            setInfo(null);
-            history.push("/");
-          }}
-        >
-          BACK
-        </button></div>
+          <button
+            onClick={() => {
+              setInfo(null);
+              history.push("/");
+            }}
+          >
+            BACK
+          </button>
+        </div>
         <div className="navigationButtonContainer">
-        <button
-          onClick={() => {
-            history.push("/new-print-page-2");
-          }}
-        >
-          NEXT
-        </button></div>
+          <button onClick={handleSubmit}>NEXT</button>
+        </div>
       </div>
     </React.Fragment>
   );

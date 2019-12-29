@@ -64,6 +64,7 @@ const NewPrintPage2 = () => {
                 const processedTable = processData(table);
                 fetch(`${endpointUrl}/print-resistance-table`, {
                   method: "POST",
+                  credentials: "include",
                   body: JSON.stringify(processedTable),
                   headers: {
                     "Content-Type": "application/json"

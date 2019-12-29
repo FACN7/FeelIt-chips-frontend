@@ -13,6 +13,7 @@ export default () => {
     e.preventDefault();
     fetch(`${endpointUrl}/invite-user`, {
       method: "POST",
+      credentials: "include",
       body: JSON.stringify({ user }),
       headers: {
         "Content-Type": "application/json"
@@ -49,7 +50,7 @@ export default () => {
           />
 
           <div className="createbtnContainer">
-            <input type="submit" value="Create"/>
+            <input type="submit" value="Create" />
           </div>
         </form>
         <button

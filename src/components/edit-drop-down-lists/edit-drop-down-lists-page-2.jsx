@@ -50,17 +50,24 @@ const EditDropDownListsPage2 = () => {
             onChange={event => setInputValue(event.target.value)}
           />
         </div>
-        <div className="add-bar-button"><button onClick={()=>{
-          const newOption={}
-          newOption.value = inputValue.replace(/\s+/g, '_').toLowerCase();
-          newOption.label = inputValue;
-          let updatedOptions=JSON.parse(JSON.stringify(ddlOptions));
-          updatedOptions.values.push(newOption)
-          setDdlOptions(updatedOptions)}}>ADD</button></div>
+        <div className="add-bar-button">
+          <button
+            onClick={() => {
+              const newOption = {};
+              newOption.value = inputValue.replace(/\s+/g, "_").toLowerCase();
+              newOption.label = inputValue;
+              const updatedOptions = JSON.parse(JSON.stringify(ddlOptions));
+              updatedOptions.values.push(newOption);
+              setDdlOptions(updatedOptions);
+            }}
+          >
+            ADD
+          </button>
+        </div>
       </div>
     );
-  }
-  
+  };
+
   return (
     <React.Fragment>
       <div className="Container">
@@ -85,6 +92,7 @@ const EditDropDownListsPage2 = () => {
               onClick={() => {
                 fetch(`${endpointUrl}/edit-dropdown`, {
                   method: "POST",
+                  credentials: "include",
                   body: JSON.stringify(ddlOptions),
                   headers: {
                     "Content-Type": "application/json"
@@ -101,7 +109,6 @@ const EditDropDownListsPage2 = () => {
       </div>
     </React.Fragment>
   );
-
 };
 
 export default EditDropDownListsPage2;
