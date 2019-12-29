@@ -56,7 +56,7 @@ const EditDropDownListsPage2 = () => {
               const newOption = {};
               newOption.value = inputValue.replace(/\s+/g, "_").toLowerCase();
               newOption.label = inputValue;
-              let updatedOptions = JSON.parse(JSON.stringify(ddlOptions));
+              const updatedOptions = JSON.parse(JSON.stringify(ddlOptions));
               updatedOptions.values.push(newOption);
               setDdlOptions(updatedOptions);
             }}
