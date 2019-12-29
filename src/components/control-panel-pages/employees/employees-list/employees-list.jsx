@@ -17,7 +17,7 @@ export default () => {
   const [list, setList] = React.useState([]);
 
   React.useEffect(() => {
-    fetch(`${endpointUrl}/get-all-users`)
+    fetch(`${endpointUrl}/get-all-users`, { credentials: "include" })
       .then(res => res.json())
       .then(res => setList(res.users));
   }, []);

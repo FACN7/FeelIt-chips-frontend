@@ -27,13 +27,15 @@ function List({ Curing = true }) {
 
   const history = useHistory();
   React.useEffect(() => {
-    fetch(`${endpointUrl}/get-sensors`)
+    fetch(`${endpointUrl}/get-sensors`, { credentials: "include" })
       .then(res => res.json())
       .then(data => setList(data.sensors.reverse()));
   }, []);
   React.useEffect(() => {
     if (showMoreById !== -1) {
-      fetch(`${endpointUrl}/get-sensors/${showMoreById}`)
+      fetch(`${endpointUrl}/get-sensors/${showMoreById}`, {
+        credentials: "include"
+      })
         .then(res => res.json())
         .then(res => setTable({ table: processData(res) }));
     }

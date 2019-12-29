@@ -37,7 +37,7 @@ const PrintForm = () => {
   const [concentrations, setConcentrations] = React.useState([]);
 
   React.useEffect(() => {
-    fetch(`${endpointUrl}/print-inputs-options`)
+    fetch(`${endpointUrl}/print-inputs-options`, { credentials: "include" })
       .then(res => res.json())
       .then(data => {
         setPrinters(convertToDropDownListItems(data.printer));

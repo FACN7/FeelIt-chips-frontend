@@ -57,7 +57,6 @@ export default function CurePage() {
             <div className="CuringInput">
               <Table Type={type}></Table>
               <div className="curingButtonContainer">
-        
                 <button
                   onClick={() => {
                     postCuring(setTable, table, type);

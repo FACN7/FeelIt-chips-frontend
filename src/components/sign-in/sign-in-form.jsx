@@ -19,7 +19,7 @@ const SignInForm = () => {
         "Content-Type": "application/json"
       }
     })
-      .then(() => window.location="/")
+      .then(() => (window.location = "/"))
       .catch(err => console.log(err));
   };
 
@@ -27,34 +27,34 @@ const SignInForm = () => {
     setUser({ ...user, [input.name]: input.value });
   };
   return (
-      <div className="form-container">
-        <h1>sign in page</h1>
+    <div className="form-container">
+      <h1>sign in page</h1>
 
-        <form onSubmit={handleSubmit} className="reg-form">
-          <input
-            type="email"
-            placeholder="Enter Email..."
-            value={user.email}
-            name="email"
-            onChange={handleChange}
-            required
-            minLength="3"
-          />
+      <form onSubmit={handleSubmit} className="reg-form">
+        <input
+          type="email"
+          placeholder="Enter Email..."
+          value={user.email}
+          name="email"
+          onChange={handleChange}
+          required
+          minLength="3"
+        />
 
-          <input
-            type="password"
-            placeholder="Enter Password..."
-            value={user.password}
-            name="password"
-            onChange={handleChange}
-            required
-          />
+        <input
+          type="password"
+          placeholder="Enter Password..."
+          value={user.password}
+          name="password"
+          onChange={handleChange}
+          required
+        />
 
-          <div className="buttonContainer">
-            <input type="submit"  value="Sign In"/>
-          </div>
-        </form>
-      </div>
+        <div className="buttonContainer">
+          <input type="submit" value="Sign In" />
+        </div>
+      </form>
+    </div>
   );
 };
 

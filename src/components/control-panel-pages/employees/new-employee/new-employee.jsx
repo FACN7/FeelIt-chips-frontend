@@ -50,7 +50,7 @@ export default () => {
           />
 
           <div className="createbtnContainer">
-            <input type="submit" value="Create"/>
+            <input type="submit" value="Create" />
           </div>
         </form>
         <button
