@@ -10,7 +10,7 @@ const handleSignOut = () => {
     credentials: "include"
   }).then(res => {
     if (res.status === 302) {
-      window.location = "/";
+      window.location = "/sign-in";
     }
   });
 };
