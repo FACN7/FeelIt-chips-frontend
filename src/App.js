@@ -13,8 +13,9 @@ import CurePage from "./components/curing-pages/Sensors-cure-page/Sensors-cure-p
 import EditDropDownListsPage2 from "./components/edit-drop-down-lists/edit-drop-down-lists-page-2";
 import ControlPanel from "./components/control-panel-pages/control-panel";
 import Employees from "./components/control-panel-pages/employees/employees";
-import NewEmployee from "./components/control-panel-pages/employees/new-employee/new-employee"
+import NewEmployee from "./components/control-panel-pages/employees/new-employee/new-employee";
 import ProtectedRoute from "./components/general/ProtectedRoute/ProtectedRoute";
+import SignUp from "./components/sign-up/sign-up";
 import SignInForm from "./components/sign-in/sign-in-form";
 
 function App() {
@@ -23,7 +24,8 @@ function App() {
       <Header />
       <Switch>
         <Route exact path="/sign-in" component={SignInForm} />
-        <Route exact path="/" component={SensorsAction} />
+        <ProtectedRoute exact path="/" component={SensorsAction} />
+        <Route path="/sign-up/:token" component={SignUp} />
 
         <ProtectedRoute
           path="/control-panel"
@@ -35,7 +37,7 @@ function App() {
           component={Employees}
           adminLevel={true}
         />
-         <ProtectedRoute
+        <ProtectedRoute
           path="/new-employee"
           component={NewEmployee}
           adminLevel={true}

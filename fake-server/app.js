@@ -12,10 +12,10 @@ const getAllUsers = require("./dummy-data/get-all-users.json");
 const app = express();
 
 const corsOptions = {
-  origin: 'http://localhost:3000',
+  origin: "http://localhost:3000",
   credentials: true,
   optionsSuccessStatus: 200
-}
+};
 
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
@@ -52,19 +52,20 @@ app.get("/auth-check", (req, res) => {
 });
 
 app.get("/signout", (req, res) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
-  res.header("Access-Control-Allow-Credentials", "true");
   res.clearCookie("jwt");
   res.sendStatus(302);
 });
 
+app.post("/sign-up/:token", (req, res) => {
+  res.status(302).end();
+});
 app.post("/edit-dropdown/", (req, res) => {
   res.status(302).end();
 });
 
 app.post("/login", (req, res) => {
   res.cookie(
-    "login",
+    "jwt",
     JSON.stringify({
       employee: "Jamie Coe",
       admin: true
