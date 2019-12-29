@@ -25,7 +25,7 @@ function App() {
       <Switch>
         <Route exact path="/sign-in" component={SignInForm} />
         <ProtectedRoute exact path="/" component={SensorsAction} />
-        <ProtectedRoute path="/sign-up/:token" component={SignUp} />
+        <Route path="/sign-up/:token" component={SignUp} />
 
         <ProtectedRoute
           path="/control-panel"

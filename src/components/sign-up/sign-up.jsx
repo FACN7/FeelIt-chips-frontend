@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import "./sign-up.css";
 import endpointUrl from "../../config";
 export default () => {
-  let { token } = useParams();
+  const { token } = useParams();
 
   const [user, setUser] = React.useState({
     firstName: "",
@@ -23,7 +23,7 @@ export default () => {
       }
     }).then(res => {
       if (res.status === 302) {
-        window.location = "/";
+        window.location = "/sign-in";
       }
     });
   };
@@ -38,7 +38,7 @@ export default () => {
       <div className="sign-up-form">
         <input
           type="text"
-          placeholder="Enter firstName..."
+          placeholder="Enter first name..."
           value={user.firstName}
           name="firstName"
           onChange={handleChange}
