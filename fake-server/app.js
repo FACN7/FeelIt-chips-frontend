@@ -12,10 +12,10 @@ const getAllUsers = require("./dummy-data/get-all-users.json");
 const app = express();
 
 const corsOptions = {
-  origin: 'http://localhost:3000',
+  origin: "http://localhost:3000",
   credentials: true,
   optionsSuccessStatus: 200
-}
+};
 
 app.use(cors(corsOptions));
 app.use(bodyParser.json());

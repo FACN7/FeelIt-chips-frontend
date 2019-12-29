@@ -13,19 +13,26 @@ export default () => {
     confirmPassword: ""
   });
   const handleSubmit = e => {
-    const sendUserDetails = { ...user };
-    delete sendUserDetails.confirmPassword;
-    fetch(`${endpointUrl}/sign-up/${token}`, {
-      method: "POST",
-      body: JSON.stringify({ user: sendUserDetails }),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    }).then(res => {
-      if (res.status === 302) {
-        window.location = "/sign-in";
-      }
-    });
+    e.preventDefault();
+    const { password, confirmPassword } = user;
+    // perform all neccassary validations
+    if (password !== confirmPassword) {
+      alert("Passwords don't match");
+    } else {
+      const sendUserDetails = { ...user };
+      delete sendUserDetails.confirmPassword;
+      fetch(`${endpointUrl}/sign-up/${token}`, {
+        method: "POST",
+        body: JSON.stringify(sendUserDetails),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }).then(res => {
+        if (res.status === 302) {
+          window.location = "/sign-in";
+        }
+      });
+    }
   };
 
   const handleChange = ({ currentTarget: input }) => {
@@ -35,7 +42,7 @@ export default () => {
     <div className="sign-up-form-container">
       <h1>sign up page</h1>
 
-      <div className="sign-up-form">
+      <form onSubmit={handleSubmit} className="sign-up-form">
         <input
           type="text"
           placeholder="Enter first name..."
@@ -81,11 +88,9 @@ export default () => {
         />
 
         <div className="createbtnContainer">
-          <button onClick={handleSubmit} type="submit">
-            Create
-          </button>
+          <input value="Create" type="submit" />
         </div>
-      </div>
+      </form>
     </div>
   );
 };
