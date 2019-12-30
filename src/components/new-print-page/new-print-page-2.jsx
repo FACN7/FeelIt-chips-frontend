@@ -45,8 +45,7 @@ const NewPrintPage2 = () => {
   const history = useHistory();
 
   return (
-    <tableContext.Provider value={{ table, setTable }}>
-      <React.Fragment>
+      <tableContext.Provider value={{ table, setTable }}>
         <Table Type="res" sensorsProbsNum={2} editable={true}></Table>
         <div className="navigationContainer">
           <div className="navigationButtonContainer">
@@ -84,8 +83,7 @@ const NewPrintPage2 = () => {
             </button>
           </div>
         </div>
-      </React.Fragment>
-    </tableContext.Provider>
+      </tableContext.Provider>
   );
 };
 
