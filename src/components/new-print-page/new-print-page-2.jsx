@@ -4,6 +4,7 @@ import { InfoContext } from "./printContext";
 import tableContext from "../general/table/tableContext";
 import Table from "../general/table/table";
 import endpointUrl from "../../config";
+import './new-print-page.css'
 
 const init = {
   a0: {},
@@ -45,8 +46,8 @@ const NewPrintPage2 = () => {
   const history = useHistory();
 
   return (
-    <tableContext.Provider value={{ table, setTable }}>
-      <React.Fragment>
+    <tableContext.Provider value={{ table, setTable }}> 
+        <h1 class="print-table-header">Initial sensor resistance table</h1>     
         <Table Type="res" sensorsProbsNum={2} editable={true}></Table>
         <div className="navigationContainer">
           <div className="navigationButtonContainer">
@@ -83,8 +84,7 @@ const NewPrintPage2 = () => {
               DONE
             </button>
           </div>
-        </div>
-      </React.Fragment>
+        </div>      
     </tableContext.Provider>
   );
 };
