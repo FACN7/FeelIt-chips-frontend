@@ -62,37 +62,34 @@ function App() {
           path="/cure-sensor/:serialNumber"
           component={CurePage}
         />
-        <Route exact path="/fuck" component={()=><h1>HELLO</h1>} />
 
         <NewPrintInfoProvider>
-        <Switch>
+          <Switch>
+            <ProtectedRoute
+              setUser={setUser}
+              path="/new-print-page-2"
+              component={PrintPage2}
+            />
+            <ProtectedRoute
+              setUser={setUser}
+              path="/new-print"
+              component={PrintPage}
+            />
 
-          <ProtectedRoute
-            setUser={setUser}
-            path="/new-print-page-2"
-            component={PrintPage2}
-          />
-          <ProtectedRoute
-            setUser={setUser}
-            path="/new-print"
-            component={PrintPage}
-          />
+            <ProtectedRoute
+              setUser={setUser}
+              adminLevel={true}
+              path="/edit-drop-down-lists-page"
+              component={EditDropDownListsPage}
+            />
 
-          <ProtectedRoute
-            setUser={setUser}
-            adminLevel={true}
-            path="/edit-drop-down-lists-page"
-            component={EditDropDownListsPage}
-          />
-
-          <ProtectedRoute
-            setUser={setUser}
-            adminLevel={true}
-            path="/edit-drop-down-lists-page-2"
-            component={EditDropDownListsPage2}
-          />
-      </Switch>
-
+            <ProtectedRoute
+              setUser={setUser}
+              adminLevel={true}
+              path="/edit-drop-down-lists-page-2"
+              component={EditDropDownListsPage2}
+            />
+          </Switch>
         </NewPrintInfoProvider>
       </Switch>
     </React.Fragment>

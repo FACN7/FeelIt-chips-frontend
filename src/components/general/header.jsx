@@ -13,8 +13,7 @@ const handleSignOut = () => {
   });
 };
 
-export default function Header(props) {
-  let data = props.data;
+export default function Header({data}) {
   return (
     <nav id="navbar">
       <div className="nav-items">
