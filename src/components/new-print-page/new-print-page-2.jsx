@@ -84,17 +84,8 @@ const NewPrintPage2 = () => {
               DONE
             </button>
           </div>
-<<<<<<< HEAD
         </div>      
     </tableContext.Provider>
-||||||| merged common ancestors
-        </div>
-      </React.Fragment>
-    </tableContext.Provider>
-=======
-        </div>
-      </tableContext.Provider>
->>>>>>> master
   );
 };
 
