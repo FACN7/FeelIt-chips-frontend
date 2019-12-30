@@ -1,8 +1,7 @@
-import React,{useContext} from "react";
+import React, { useContext } from "react";
 import List from "./Sensors-list/list";
 import { useHistory } from "react-router-dom";
 import PrinterIcon from "../../../Icons/printer-with-plus.svg";
-import Loupe from "../../../Icons/loupe.svg";
 
 import "./Sensors-list-page.css";
 import tableContext from "../../general/table/tableContext";

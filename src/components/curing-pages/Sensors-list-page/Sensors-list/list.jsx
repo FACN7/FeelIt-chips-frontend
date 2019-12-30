@@ -21,7 +21,7 @@ const processData = resistanceTable => {
   return newTable;
 };
 
-function List({ Curing = true }) {
+function List() {
   const { info, setInfo } = useContext(InfoContext);
   const [list, setList] = React.useState([]);
   const [showMoreById, setshowMoreById] = React.useState(-1);
