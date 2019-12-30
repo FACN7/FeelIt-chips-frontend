@@ -34,7 +34,7 @@ const postCuring = (setTable, table, type, _id) => {
 };
 
 export default function CurePage() {
-  const { info } = useContext(InfoContext);
+  const { info,setInfo } = useContext(InfoContext);
   const [type, setType] = React.useState("");
   const [table, setTable] = React.useReducer(reducer, { ...init });
   const history = useHistory();
@@ -79,6 +79,7 @@ export default function CurePage() {
             </button>
             <button
               onClick={e => {
+                setInfo(null);
                 history.push("/");
               }}
             >
