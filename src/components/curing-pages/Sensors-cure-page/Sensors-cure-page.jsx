@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Sensors-cure-page.css";
 import Table from "../../general/table/table";
 import DropList from "../../general/Drop-down-list/Drop-down-list";
 import tableContext from "../../general/table/tableContext";
 import { useHistory } from "react-router-dom";
 import endpointUrl from "../../../config";
+import { InfoContext } from "../../new-print-page/printContext";
 
 const init = { a0: {}, a1: {}, a2: {}, a3: {}, a4: {}, a5: {}, a6: {}, a7: {} };
 
@@ -12,7 +13,6 @@ const reducer = (table, action) => {
   if (action.reset) {
     return JSON.parse(JSON.stringify(init));
   }
-
   return JSON.parse(JSON.stringify(action.table));
 };
 
@@ -34,6 +34,7 @@ const postCuring = (setTable, table, type, _id) => {
 };
 
 export default function CurePage() {
+  const { info } = useContext(InfoContext);
   const [type, setType] = React.useState("");
   const [table, setTable] = React.useReducer(reducer, { ...init });
   const history = useHistory();
@@ -59,7 +60,7 @@ export default function CurePage() {
               <div className="curingButtonContainer">
                 <button
                   onClick={() => {
-                    postCuring(setTable, table, type);
+                    postCuring(setTable, table, type, info._id);
                   }}
                 >
                   Add Curing

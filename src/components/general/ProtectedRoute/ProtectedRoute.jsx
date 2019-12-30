@@ -3,7 +3,7 @@ import { Route, useHistory } from "react-router-dom";
 import { useAsync } from "react-async";
 import checkAuth from "../../../scripts/checkAuth";
 
-export default ({ component, path, adminLevel = false, setUser=(p)=>{} }) => {
+export default ({ component, path, adminLevel = false, setUser }) => {
   const history = useHistory();
   const { data, isPending } = useAsync({ promiseFn: checkAuth });
 

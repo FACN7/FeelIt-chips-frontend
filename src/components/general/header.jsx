@@ -13,8 +13,7 @@ const handleSignOut = () => {
   });
 };
 
-export default function Header(props) {
-  let data = props.data;
+export default function Header({ data }) {
   return (
     <nav id="navbar">
       <div className="nav-items">
@@ -22,12 +21,10 @@ export default function Header(props) {
           <Clock className="Clock" ticking={true} format={"L HH:mm"} />
           <div>{data && data.isAuthenticated ? data.employee : null}</div>
         </div>
-        {data && data.isAuthenticated ? (
-          <div>
-            <button id="signout" onClick={() => handleSignOut()}>
-              sign out
-            </button>
-          </div>
+        {data && data.isAuthenticated ? (          
+          <button id="signout" onClick={() => handleSignOut()}>
+            sign out
+          </button>          
         ) : null}
       </div>
     </nav>
