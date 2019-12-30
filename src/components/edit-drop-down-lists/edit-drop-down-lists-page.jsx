@@ -48,7 +48,7 @@ const EditDropDownListsPage = () => {
           <button
             onClick={() => {
               setInfo(null);
-              history.push("/");
+              history.push("/control-panel");
             }}
           >
             BACK
