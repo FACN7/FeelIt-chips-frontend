@@ -19,7 +19,14 @@ const SignInForm = () => {
         "Content-Type": "application/json"
       }
     })
-      .then(() => (window.location = "/"))
+      .then(res => {
+        if (res.status === 302) {
+          window.location = "/";
+        }else{
+          alert("Email or password is incorrect");
+        }
+      })
+
       .catch(err => console.log(err));
   };
 
