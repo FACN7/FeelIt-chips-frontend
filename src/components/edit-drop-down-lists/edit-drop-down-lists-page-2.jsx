@@ -12,6 +12,7 @@ const EditDropDownListsPage2 = () => {
       if (item.value !== value) {
         updatedOptions.values.push(item);
       }
+      return;
     });
     return updatedOptions;
   };

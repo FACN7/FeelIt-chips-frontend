@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useContext} from "react";
 import List from "./Sensors-list/list";
 import { useHistory } from "react-router-dom";
 import PrinterIcon from "../../../Icons/printer-with-plus.svg";
@@ -22,9 +22,7 @@ export default function ListPage() {
       <tableContext.Provider value={{ table, setTable }}>
         <div className="listContainer">
           <div className="header">
-            <div className="inputContainer">
-              
-            </div>
+            <div className="inputContainer"></div>
             <img
               className="printer"
               src={PrinterIcon}

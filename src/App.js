@@ -17,6 +17,7 @@ import NewEmployee from "./components/control-panel-pages/employees/new-employee
 import ProtectedRoute from "./components/general/ProtectedRoute/ProtectedRoute";
 import SignUp from "./components/sign-up/sign-up";
 import SignInForm from "./components/sign-in/sign-in-form";
+import { SensorCuringInfoProvider } from "./components/curing-pages/sensorCuringContext";
 
 function App() {
   const [user, setUser] = React.useState(null);
@@ -52,19 +53,20 @@ function App() {
           component={NewEmployee}
           adminLevel={true}
         />
-        <ProtectedRoute
-          setUser={setUser}
-          path="/Sensors"
-          component={SensorsPageList}
-        />
-        <ProtectedRoute
-          setUser={setUser}
-          path="/cure-sensor/:serialNumber"
-          component={CurePage}
-        />
 
         <NewPrintInfoProvider>
           <Switch>
+            <ProtectedRoute
+              setUser={setUser}
+              path="/Sensors"
+              component={SensorsPageList}
+            />
+            <ProtectedRoute
+              setUser={setUser}
+              path="/cure-sensor/:serialNumber"
+              component={CurePage}
+            />
+
             <ProtectedRoute
               setUser={setUser}
               path="/new-print-page-2"
@@ -75,14 +77,12 @@ function App() {
               path="/new-print"
               component={PrintPage}
             />
-
             <ProtectedRoute
               setUser={setUser}
               adminLevel={true}
               path="/edit-drop-down-lists-page"
               component={EditDropDownListsPage}
             />
-
             <ProtectedRoute
               setUser={setUser}
               adminLevel={true}
