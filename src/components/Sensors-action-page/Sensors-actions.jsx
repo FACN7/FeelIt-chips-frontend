@@ -5,13 +5,14 @@ import StorageIcon from "../../Icons/database.svg";
 import ControlPanel from "../../Icons/control-panel.svg";
 import { useAsync } from "react-async";
 import checkAuth from "../../scripts/checkAuth";
+import CircularProgress from "../../components/general/CircularProgress";
 
 import "./Sensors-actions.css";
 export default function SensorsActionPage() {
   const history = useHistory();
   const { data, isPending } = useAsync({ promiseFn: checkAuth });
 
-  if (isPending) return "Loading...";
+  if (isPending) return <CircularProgress />;
   return (
     <React.Fragment>
       <div className="actionContainer">
@@ -40,7 +41,7 @@ export default function SensorsActionPage() {
                 <span>Storage</span>
               </div>
             </button>
-          </div>  
+          </div>
           {data && data.admin ? (
             <div className="button-container">
               <button
