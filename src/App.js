@@ -19,48 +19,77 @@ import SignUp from "./components/sign-up/sign-up";
 import SignInForm from "./components/sign-in/sign-in-form";
 
 function App() {
+  const [user, setUser] = React.useState(null);
+
   return (
     <React.Fragment>
-      <Header />
+      <Header data={user} />
       <Switch>
         <Route exact path="/sign-in" component={SignInForm} />
-        <ProtectedRoute exact path="/" component={SensorsAction} />
         <Route path="/sign-up/:token" component={SignUp} />
 
         <ProtectedRoute
+          setUser={setUser}
+          exact
+          path="/"
+          component={SensorsAction}
+        />
+        <ProtectedRoute
+          setUser={setUser}
           path="/control-panel"
           component={ControlPanel}
           adminLevel={true}
         />
         <ProtectedRoute
+          setUser={setUser}
           path="/employees"
           component={Employees}
           adminLevel={true}
         />
         <ProtectedRoute
+          setUser={setUser}
           path="/new-employee"
           component={NewEmployee}
           adminLevel={true}
         />
-        <ProtectedRoute path="/Sensors" component={SensorsPageList} />
         <ProtectedRoute
+          setUser={setUser}
+          path="/Sensors"
+          component={SensorsPageList}
+        />
+        <ProtectedRoute
+          setUser={setUser}
           path="/cure-sensor/:serialNumber"
           component={CurePage}
         />
 
         <NewPrintInfoProvider>
-          <ProtectedRoute path="/new-print" component={PrintPage} />
-          <ProtectedRoute path="/new-print-page-2" component={PrintPage2} />
-          <ProtectedRoute
-            adminLevel={true}
-            path="/edit-drop-down-lists-page"
-            component={EditDropDownListsPage}
-          />
-          <ProtectedRoute
-            adminLevel={true}
-            path="/edit-drop-down-lists-page-2"
-            component={EditDropDownListsPage2}
-          />
+          <Switch>
+            <ProtectedRoute
+              setUser={setUser}
+              path="/new-print-page-2"
+              component={PrintPage2}
+            />
+            <ProtectedRoute
+              setUser={setUser}
+              path="/new-print"
+              component={PrintPage}
+            />
+
+            <ProtectedRoute
+              setUser={setUser}
+              adminLevel={true}
+              path="/edit-drop-down-lists-page"
+              component={EditDropDownListsPage}
+            />
+
+            <ProtectedRoute
+              setUser={setUser}
+              adminLevel={true}
+              path="/edit-drop-down-lists-page-2"
+              component={EditDropDownListsPage2}
+            />
+          </Switch>
         </NewPrintInfoProvider>
       </Switch>
     </React.Fragment>
