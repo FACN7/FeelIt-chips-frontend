@@ -27,11 +27,10 @@ export default () => {
         <div key={user._id} className="list-item">
           <div className="data-container">
             <span className="Name">
-              Name :{user.firstName} {user.surname}
+              Name: {user.firstName} {user.surname}
             </span>
             <span className="Email">Email: {user.email}</span>
-          </div>
-          {/* <div className="removeBtnContainer"> */}
+          </div>          
           <button
             className="removeBtn"
             onClick={e => {
