@@ -2,12 +2,13 @@ import React from "react";
 import { Route, useHistory } from "react-router-dom";
 import { useAsync } from "react-async";
 import checkAuth from "../../../scripts/checkAuth";
+import CircularProgress from "../CircularProgress";
 
 export default ({ component, path, adminLevel = false, setUser }) => {
   const history = useHistory();
   const { data, isPending } = useAsync({ promiseFn: checkAuth });
 
-  if (isPending) return "Loading...";
+  if (isPending) return <CircularProgress />;
   if (
     !data ||
     data.isAuthenticated === false ||
