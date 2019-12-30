@@ -25,12 +25,10 @@ export default function Header() {
           <Clock className="Clock" ticking={true} format={"L HH:mm"} />
           <div>{data && data.isAuthenticated ? data.employee : null}</div>
         </div>
-        {data && data.isAuthenticated ? (
-          <div>
-            <button id="signout" onClick={() => handleSignOut()}>
-              sign out
-            </button>
-          </div>
+        {data && data.isAuthenticated ? (          
+          <button id="signout" onClick={() => handleSignOut()}>
+            sign out
+          </button>          
         ) : null}
       </div>
     </nav>
