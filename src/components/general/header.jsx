@@ -1,7 +1,5 @@
 import React from "react";
 import Clock from "react-live-clock";
-import checkAuth from "../../scripts/checkAuth";
-import { useAsync } from "react-async";
 import "./header.css";
 import endpointUrl from "../../config";
 
@@ -14,10 +12,8 @@ const handleSignOut = () => {
     }
   });
 };
-export default function Header() {
-  const { data, isPending } = useAsync({ promiseFn: checkAuth });
 
-  if (isPending) return "Loading...";
+export default function Header({ data }) {
   return (
     <nav id="navbar">
       <div className="nav-items">
