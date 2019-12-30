@@ -1,5 +1,5 @@
 import React from "react";
-import List from "./employees-list/employees-list";
+import EmployeeList from "./employees-list/employees-list";
 import { useHistory } from "react-router-dom";
 import "./employees.css";
 export default () => {
@@ -16,7 +16,7 @@ export default () => {
         new employee
       </button>
       <div className="listContainer">
-        <List></List>
+        <EmployeeList />
         <button
           id="empback"
           onClick={e => {
