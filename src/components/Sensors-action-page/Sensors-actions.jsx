@@ -3,16 +3,10 @@ import { useHistory } from "react-router-dom";
 import PrinterIcon from "../../Icons/printer.svg";
 import StorageIcon from "../../Icons/database.svg";
 import ControlPanel from "../../Icons/control-panel.svg";
-import { useAsync } from "react-async";
-import checkAuth from "../../scripts/checkAuth";
-import CircularProgress from "../../components/general/CircularProgress";
-
 import "./Sensors-actions.css";
-export default function SensorsActionPage() {
-  const history = useHistory();
-  const { data, isPending } = useAsync({ promiseFn: checkAuth });
 
-  if (isPending) return <CircularProgress />;
+export default function SensorsActionPage({ user }) {
+  const history = useHistory();
   return (
     <React.Fragment>
       <div className="actionContainer">
@@ -42,7 +36,7 @@ export default function SensorsActionPage() {
               </div>
             </button>
           </div>
-          {data && data.admin ? (
+          {user && user.admin ? (
             <div className="button-container">
               <button
                 onClick={() => {

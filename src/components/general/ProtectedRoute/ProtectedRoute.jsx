@@ -4,7 +4,13 @@ import { useAsync } from "react-async";
 import checkAuth from "../../../scripts/checkAuth";
 import CircularProgress from "../CircularProgress";
 
-export default ({ component, path, adminLevel = false, setUser }) => {
+export default ({
+  component: Component,
+  path,
+  adminLevel = false,
+  setUser,
+  user = {}
+}) => {
   const history = useHistory();
   const { data, isPending } = useAsync({ promiseFn: checkAuth });
 
@@ -19,5 +25,5 @@ export default ({ component, path, adminLevel = false, setUser }) => {
     return null;
   }
   setUser(data);
-  return <Route path={path} component={component} />;
+  return <Route path={path} render={() => <Component user={user} />} />;
 };
