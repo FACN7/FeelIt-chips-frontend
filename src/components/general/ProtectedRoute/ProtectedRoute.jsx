@@ -9,7 +9,7 @@ export default ({
   path,
   adminLevel = false,
   setUser,
-  user
+  user = {}
 }) => {
   const history = useHistory();
   const { data, isPending } = useAsync({ promiseFn: checkAuth });
