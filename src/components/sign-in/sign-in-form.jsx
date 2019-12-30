@@ -20,11 +20,10 @@ const SignInForm = () => {
       .then(res => {
         if (res.status === 302) {
           window.location = "/";
-        }else{
+        } else {
           alert("Email or password is incorrect");
         }
       })
-
       .catch(err => console.log(err));
   };
 
