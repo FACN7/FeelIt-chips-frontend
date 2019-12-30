@@ -15,7 +15,7 @@ const ConvertTime = date => {
 const processData = resistanceTable => {
   const newTable = { ...init };
   Object.keys(newTable).forEach((sensorArea, idx) => {
-    newTable[sensorArea].layer = resistanceTable.layer[`a${idx}`];
+    newTable[sensorArea].layer = resistanceTable.printingLayers[`a${idx}`];
     newTable[sensorArea].resistance = resistanceTable.resistance[`a${idx}`];
   });
   return newTable;
@@ -39,7 +39,7 @@ function List() {
         credentials: "include"
       })
         .then(res => res.json())
-        .then(res => setTable({ table: processData(res) }));
+        .then(data => setTable({ table: processData(data) }));
     }
   }, [showMoreById]);
 
