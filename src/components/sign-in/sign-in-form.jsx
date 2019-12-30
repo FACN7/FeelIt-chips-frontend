@@ -1,12 +1,15 @@
 import React from "react";
 import endpointUrl from "../../config";
+import { useHistory } from "react-router-dom";
 
 const SignInForm = () => {
-
   const [user, setUser] = React.useState({
     password: "",
     email: ""
   });
+
+  const history = useHistory()
+
   const handleSubmit = e => {
     e.preventDefault();
     fetch(`${endpointUrl}/login`, {
@@ -19,7 +22,7 @@ const SignInForm = () => {
     })
       .then(res => {
         if (res.status === 302) {
-          window.location = "/";
+          history.push('/');
         } else {
           alert("Email or password is incorrect");
         }

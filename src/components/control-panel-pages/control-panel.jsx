@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-
 import "./control-panel.css";
+
 export default () => {
   const history = useHistory();
 
