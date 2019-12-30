@@ -13,7 +13,7 @@ const handleSignOut = () => {
   });
 };
 
-export default function Header({data}) {
+export default function Header({ data }) {
   return (
     <nav id="navbar">
       <div className="nav-items">
