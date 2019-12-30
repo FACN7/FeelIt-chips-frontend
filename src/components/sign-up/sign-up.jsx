@@ -1,9 +1,11 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import "./sign-up.css";
 import endpointUrl from "../../config";
+
 export default () => {
   const { token } = useParams();
+  const history = useHistory();
 
   const [user, setUser] = React.useState({
     firstName: "",
@@ -12,6 +14,7 @@ export default () => {
     password: "",
     confirmPassword: ""
   });
+  
   const handleSubmit = e => {
     e.preventDefault();
     const { password, confirmPassword } = user;
@@ -28,7 +31,7 @@ export default () => {
         }
       }).then(res => {
         if (res.status === 302) {
-          window.location = "/sign-in";
+          history.push("/sign-in");
         }
       });
     }

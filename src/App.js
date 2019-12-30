@@ -19,11 +19,11 @@ import SignUp from "./components/sign-up/sign-up";
 import SignInForm from "./components/sign-in/sign-in-form";
 
 function App() {
-  const [user, setUser] = React.useState(null);
+  const [user, setUser] = React.useState(null);  
 
   return (
     <React.Fragment>
-      <Header data={user} />
+      <Header user={user} setUser={setUser} />
       <Switch>
         <Route exact path="/sign-in" component={SignInForm} />
         <Route path="/sign-up/:token" component={SignUp} />
