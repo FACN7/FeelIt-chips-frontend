@@ -33,6 +33,7 @@ function App() {
           exact
           path="/"
           component={SensorsAction}
+          user={user}
         />
         <ProtectedRoute
           setUser={setUser}
