@@ -8,7 +8,7 @@ const EditDropDownListsPage2 = () => {
   const filterOptions = (value, listToDeleteFrom) => {
     if (listToDeleteFrom === null) return;
     const updatedOptions = { dropdown: listToDeleteFrom, values: [] };
-    ddlOptions.values.map(item => {
+    ddlOptions.values.forEach(item => {
       if (item.value !== value) {
         updatedOptions.values.push(item);
       }

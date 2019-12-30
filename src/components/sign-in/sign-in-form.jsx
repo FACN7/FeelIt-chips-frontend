@@ -1,9 +1,7 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 import endpointUrl from "../../config";
 
 const SignInForm = () => {
-  const history = useHistory();
 
   const [user, setUser] = React.useState({
     password: "",

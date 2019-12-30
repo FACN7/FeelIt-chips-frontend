@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import tableContext from "../../../general/table/tableContext";
 import Table from "../../../general/table/table";
 import "./list.css";
 import endpointUrl from "../../../../config";
+import { InfoContext } from "../../../new-print-page/printContext";
 
 const init = { a0: {}, a1: {}, a2: {}, a3: {}, a4: {}, a5: {}, a6: {}, a7: {} };
 
@@ -20,7 +21,8 @@ const processData = resistanceTable => {
   return newTable;
 };
 
-function List({ Curing = true }) {
+function List() {
+  const { info, setInfo } = useContext(InfoContext);
   const [list, setList] = React.useState([]);
   const [showMoreById, setshowMoreById] = React.useState(-1);
   const { setTable } = React.useContext(tableContext);
@@ -48,21 +50,22 @@ function List({ Curing = true }) {
           <div className="data-container">
             <div
               onClick={() =>
-                showMoreById === sensor.serialNumber
+                showMoreById === sensor._id
                   ? setshowMoreById(-1)
-                  : setshowMoreById(sensor.serialNumber)
+                  : setshowMoreById(sensor._id)
               }
             >
               <span>#{sensor.serialNumber}</span>
               <span>Sensor created at {ConvertTime(sensor.createdAt)}</span>
             </div>
-            {sensor.serialNumber === showMoreById ? (
+            {sensor._id === showMoreById ? (
               <Table Type="res" sensorsProbsNum={2} editable={false}></Table>
             ) : null}
           </div>
           <div className="buttonContainer">
             <button
               onClick={e => {
+                setInfo({_id:sensor._id});
                 history.push(`/cure-sensor/${sensor.serialNumber}`);
               }}
             >

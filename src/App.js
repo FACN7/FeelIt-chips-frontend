@@ -52,19 +52,20 @@ function App() {
           component={NewEmployee}
           adminLevel={true}
         />
-        <ProtectedRoute
-          setUser={setUser}
-          path="/Sensors"
-          component={SensorsPageList}
-        />
-        <ProtectedRoute
-          setUser={setUser}
-          path="/cure-sensor/:serialNumber"
-          component={CurePage}
-        />
 
         <NewPrintInfoProvider>
           <Switch>
+            <ProtectedRoute
+              setUser={setUser}
+              path="/Sensors"
+              component={SensorsPageList}
+            />
+            <ProtectedRoute
+              setUser={setUser}
+              path="/cure-sensor/:serialNumber"
+              component={CurePage}
+            />
+
             <ProtectedRoute
               setUser={setUser}
               path="/new-print-page-2"
@@ -75,14 +76,12 @@ function App() {
               path="/new-print"
               component={PrintPage}
             />
-
             <ProtectedRoute
               setUser={setUser}
               adminLevel={true}
               path="/edit-drop-down-lists-page"
               component={EditDropDownListsPage}
             />
-
             <ProtectedRoute
               setUser={setUser}
               adminLevel={true}
