@@ -1,19 +1,26 @@
 import React from "react";
 import "./employees-list.css";
 import endpointUrl from "../../../../config";
+import { useHistory } from "react-router-dom";
 
-const handleDelete = _id => {
-  fetch(`${endpointUrl}/delete-user/${_id}`, {
-    method: "DELETE",
-    credentials: "include",
-    headers: {
-      "Content-Type": "application/json"
-    }
-  }).then(res =>
-    res.status === 200 ? (window.location = "/employees") : null
-  );
-};
 export default () => {
+  const history = useHistory();
+
+  const handleDelete = _id => {
+    fetch(`${endpointUrl}/delete-user/${_id}`, {
+      method: "DELETE",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    .then(res => {
+      if (res.status === 200) {
+        history.push("/employees")
+      }
+    });
+  };
+
   const [list, setList] = React.useState([]);
 
   React.useEffect(() => {
