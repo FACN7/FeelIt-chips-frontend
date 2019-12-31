@@ -43,8 +43,8 @@ app.delete("/delete-user/:_id", (req, res) => {
   res.send();
 });
 
-app.post("/invite-user", (req, res) => {
-  res.send();
+app.post("/invite-user", (req, res) => {  
+  res.sendStatus(302);
 });
 
 app.get("/auth-check", (req, res) => {
