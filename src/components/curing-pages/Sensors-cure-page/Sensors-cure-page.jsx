@@ -69,6 +69,7 @@ export default function CurePage() {
             </div>
           )}
 
+        </div>
           <div className="navigationContainer">
             <div className="navigationButtonContainer">
               <button
@@ -90,7 +91,6 @@ export default function CurePage() {
               </button>
             </div>
           </div>
-        </div>
       </tableContext.Provider>
     </React.Fragment>
   );
