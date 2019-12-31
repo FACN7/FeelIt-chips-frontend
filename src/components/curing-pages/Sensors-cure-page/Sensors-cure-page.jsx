@@ -69,22 +69,26 @@ export default function CurePage() {
             </div>
           )}
 
-          <div className="curingButtonContainer">
-            <button
-              onClick={e => {
-                history.push("/Sensors");
-              }}
-            >
-              Back
-            </button>
-            <button
-              onClick={e => {
-                setInfo(null);
-                history.push("/");
-              }}
-            >
-              Done
-            </button>
+          <div className="navigationContainer">
+            <div className="navigationButtonContainer">
+              <button
+                onClick={() => {
+                  history.push("/Sensors");
+                }}
+              >
+                BACK
+              </button>
+            </div>
+            <div className="navigationButtonContainer">
+              <button
+                onClick={e => {
+                  setInfo(null);
+                  history.push("/");
+                }}
+              >
+                DONE
+              </button>
+            </div>
           </div>
         </div>
       </tableContext.Provider>

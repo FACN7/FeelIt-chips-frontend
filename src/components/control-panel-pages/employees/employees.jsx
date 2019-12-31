@@ -17,15 +17,19 @@ export default () => {
       </button>
       <div className="listContainer">
         <EmployeeList />
-        <button
-          id="empback"
-          onClick={e => {
-            history.push("/control-panel");
-          }}
-        >
-          BACK
-        </button>
       </div>
+      <div className="navigationContainer">
+            <div className="navigationButtonContainer">
+              <button
+                onClick={() => {
+                  history.push("/control-panel");
+                }}
+              >
+                BACK
+              </button>
+            </div>
+            <div className="navigationButtonContainer"></div>
+          </div>
     </div>
   );
 };

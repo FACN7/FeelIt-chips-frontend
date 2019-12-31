@@ -19,7 +19,7 @@ export default function ListPage() {
   return (
     <React.Fragment>
       <tableContext.Provider value={{ table, setTable }}>
-        <div className="listContainer">
+        <div className="Container">
           <div className="header">
             <div className="inputContainer"></div>
             <img
@@ -32,14 +32,19 @@ export default function ListPage() {
             />
           </div>
           <List></List>
-          <button
-            id="back"
-            onClick={e => {
-              history.push("/");
-            }}
-          >
-            BACK
-          </button>
+
+          <div className="navigationContainer">
+            <div className="navigationButtonContainer">
+              <button
+                onClick={() => {
+                  history.push("/");
+                }}
+              >
+                BACK
+              </button>
+            </div>
+            <div className="navigationButtonContainer"></div>
+          </div>
         </div>
       </tableContext.Provider>
     </React.Fragment>
