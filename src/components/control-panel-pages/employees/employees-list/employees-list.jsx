@@ -1,11 +1,9 @@
 import React from "react";
 import "./employees-list.css";
 import endpointUrl from "../../../../config";
-import { useHistory } from "react-router-dom";
 import CircularProgress from "../../../general/CircularProgress";
 
-export default () => {
-  const history = useHistory();
+export default () => {  
   const [list, setList] = React.useState([]);
 
   React.useEffect(() => {
@@ -23,8 +21,8 @@ export default () => {
       }
     })
     .then(res => {
-      if (res.status === 200) {
-        history.push("/employees")
+      if (res.status === 200) {        
+        window.location.reload();
       }
     });
   };  
