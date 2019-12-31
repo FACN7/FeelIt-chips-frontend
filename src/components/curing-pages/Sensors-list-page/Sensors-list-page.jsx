@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import List from "./Sensors-list/list";
+import React from "react";
+import SensorList from "./Sensors-list/list";
 import { useHistory } from "react-router-dom";
 import PrinterIcon from "../../../Icons/printer-with-plus.svg";
 
@@ -31,7 +31,7 @@ export default function ListPage() {
               }}
             />
           </div>
-          <List></List>
+          <SensorList />
           <button
             id="back"
             onClick={e => {
