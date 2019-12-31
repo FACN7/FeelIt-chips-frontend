@@ -2,6 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import "./new-employee.css";
 import endpointUrl from "../../../../config";
+import CircularProgress from "../../../general/CircularProgress";
 
 export default () => {
   const history = useHistory();
@@ -10,9 +11,12 @@ export default () => {
     user: "",
     email: ""
   });
+  const [isLoading, setIsLoading] = React.useState(false);
 
   const handleSubmit = e => {
     e.preventDefault();
+    setIsLoading(true);
+
     fetch(`${endpointUrl}/invite-user`, {
       method: "POST",
       credentials: "include",
@@ -22,7 +26,9 @@ export default () => {
       }
     })
     .then(res => {
-      if (res.status === 302) {
+      setIsLoading(false);
+      
+      if (res.status === 302) {        
         history.push('/employees')
       }
     })
@@ -31,6 +37,10 @@ export default () => {
   const handleChange = ({ currentTarget: input }) => {
     setUser({ ...user, [input.name]: input.value });
   };  
+
+  if (isLoading) {
+    return <CircularProgress />
+  }
 
   return (
     <React.Fragment>
