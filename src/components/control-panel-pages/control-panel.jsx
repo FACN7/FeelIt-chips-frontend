@@ -29,14 +29,18 @@ export default () => {
             </button>
           </div>
         </div>
-        <button
-          id="back"
-          onClick={() => {
-            history.push("/");
-          }}
-        >
-          Back
-        </button>
+        <div className="navigationContainer">
+          <div className="navigationButtonContainer">
+            <button
+              onClick={() => {
+                history.push("/");
+              }}
+            >
+              BACK
+            </button>
+          </div>
+          <div className="navigationButtonContainer"></div>
+        </div>
       </div>
     </React.Fragment>
   );

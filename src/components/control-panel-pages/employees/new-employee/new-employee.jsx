@@ -71,15 +71,19 @@ export default () => {
             <input type="submit" value="Create" />
           </div>
         </form>
-        <button
-          id="back"
-          onClick={e => {
-            history.push("/employees");
-          }}
-        >
-          BACK
-        </button>
       </div>
+      <div className="navigationContainer">
+            <div className="navigationButtonContainer">
+              <button
+                onClick={() => {
+                  history.push("/employees");
+                }}
+              >
+                BACK
+              </button>
+            </div>
+            <div className="navigationButtonContainer"></div>
+          </div>
     </React.Fragment>
   );
 };
