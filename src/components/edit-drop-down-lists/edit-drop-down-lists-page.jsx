@@ -26,7 +26,7 @@ const EditDropDownListsPage = () => {
 
   return (
     <React.Fragment>
-      <div className="Container">
+      <div className="Container extraMarginTop">
         <div className="big-buttons-container">
           {options.map(optionStr => {
             return (

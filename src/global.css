@@ -54,6 +54,10 @@
   align-items: center;
 }
 
+.extraMarginTop {
+  margin-top: 60px;
+}
+
 .label {
   width: 100%;
   display: flex;
