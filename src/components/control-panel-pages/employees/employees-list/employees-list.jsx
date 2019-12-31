@@ -2,9 +2,17 @@ import React from "react";
 import "./employees-list.css";
 import endpointUrl from "../../../../config";
 import { useHistory } from "react-router-dom";
+import CircularProgress from "../../../general/CircularProgress";
 
 export default () => {
   const history = useHistory();
+  const [list, setList] = React.useState([]);
+
+  React.useEffect(() => {
+    fetch(`${endpointUrl}/get-all-users`, { credentials: "include" })
+      .then(res => res.json())
+      .then(res => setList(res.users));
+  }, []);
 
   const handleDelete = _id => {
     fetch(`${endpointUrl}/delete-user/${_id}`, {
@@ -19,15 +27,12 @@ export default () => {
         history.push("/employees")
       }
     });
-  };
+  };  
 
-  const [list, setList] = React.useState([]);
+  if (list.length === 0) {
+    return <CircularProgress />
+  }
 
-  React.useEffect(() => {
-    fetch(`${endpointUrl}/get-all-users`, { credentials: "include" })
-      .then(res => res.json())
-      .then(res => setList(res.users));
-  }, []);
   return (
     <div className="list">
       {list.map(user => (

@@ -2,6 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import "./new-employee.css";
 import endpointUrl from "../../../../config";
+
 export default () => {
   const history = useHistory();
 
@@ -9,21 +10,28 @@ export default () => {
     user: "",
     email: ""
   });
+
   const handleSubmit = e => {
     e.preventDefault();
     fetch(`${endpointUrl}/invite-user`, {
       method: "POST",
       credentials: "include",
-      body: JSON.stringify({ user }),
+      body: JSON.stringify(user),
       headers: {
         "Content-Type": "application/json"
       }
-    });
+    })
+    .then(res => {
+      if (res.status === 302) {
+        history.push('/employees')
+      }
+    })
   };
 
   const handleChange = ({ currentTarget: input }) => {
     setUser({ ...user, [input.name]: input.value });
-  };
+  };  
+
   return (
     <React.Fragment>
       <div className="form-container">

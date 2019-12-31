@@ -5,6 +5,7 @@ import Table from "../../../general/table/table";
 import "./list.css";
 import endpointUrl from "../../../../config";
 import { InfoContext } from "../../../new-print-page/printContext";
+import CircularProgress from "../../../general/CircularProgress";
 
 const init = { a0: {}, a1: {}, a2: {}, a3: {}, a4: {}, a5: {}, a6: {}, a7: {} };
 
@@ -28,11 +29,13 @@ function List() {
   const { setTable } = React.useContext(tableContext);
 
   const history = useHistory();
+
   React.useEffect(() => {
     fetch(`${endpointUrl}/get-sensors`, { credentials: "include" })
       .then(res => res.json())
       .then(data => setList(data.sensors.reverse()));
   }, []);
+
   React.useEffect(() => {
     if (showMoreById !== -1) {
       fetch(`${endpointUrl}/get-sensors/${showMoreById}`, {
@@ -42,6 +45,10 @@ function List() {
         .then(data => setTable({ table: processData(data) }));
     }
   }, [showMoreById]);
+
+  if (list.length === 0) {
+    return <CircularProgress />
+  }
 
   return (
     <div className="list">
